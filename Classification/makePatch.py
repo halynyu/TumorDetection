@@ -235,6 +235,7 @@ def make_patch(NEGATIVE_FOLDER, POSITIVE_FOLDER, JPEG_FOLDER):
         current_svs_name = NEGATIVE_FOLDER[idx].split("/")[3][:_length]
         print(f"현재 svs : {current_svs_name}")
         current_svs = openslide.open_slide(NEGATIVE_FOLDER[idx])
+        print(current_svs)
         current_jpeg = is_matching(current_svs_name, JPEG_FOLDER, _length)
         print(f"현재 JPEG : {current_jpeg}")
 
