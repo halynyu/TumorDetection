@@ -1,310 +1,142 @@
-ALK_NEGATIVE_TUMOR = [
-"./DATASET/LUAC/LUAC_1-1_A4.svs"
-
-# 안된애들
-# "./DATASET/SSSF/SS17-77649_45000_0.svs", 
-
-
-# 패치 뽑은애들
-# "./DATASET/SSSF/SF18-00841_0_0.svs", "./DATASET/SSSF/SF18-00841_0_20000.svs", "./DATASET/SSSF/SF18-00841_0_40000.svs", "./DATASET/SSSF/SF18-00841_0_60000.svs", "./DATASET/SSSF/SF18-00841_20000_0.svs", 
-# "./DATASET/SSSF/SF18-00841_20000_20000.svs", "./DATASET/SSSF/SF18-00841_20000_40000.svs", "./DATASET/SSSF/SF18-00841_20000_60000.svs", "./DATASET/SSSF/SF18-00841_40000_0.svs", "./DATASET/SSSF/SF18-00841_40000_20000.svs", 
-# "./DATASET/SSSF/SF18-00841_40000_40000.svs", "./DATASET/SSSF/SF18-00841_40000_60000.svs", "./DATASET/SSSF/SF18-00841_60000_0.svs", "./DATASET/SSSF/SF18-00841_60000_20000.svs", "./DATASET/SSSF/SF18-00841_60000_40000.svs", 
-# "./DATASET/SSSF/SF18-00841_60000_60000.svs", "./DATASET/SSSF/SF18-00841_80000_0.svs", "./DATASET/SSSF/SF18-00841_80000_20000.svs", "./DATASET/SSSF/SF18-00841_80000_40000.svs", "./DATASET/SSSF/SF18-00841_80000_60000.svs", 
-# "./DATASET/SSSF/SF18-00841_100000_0.svs", "./DATASET/SSSF/SF18-00841_100000_20000.svs", "./DATASET/SSSF/SF18-00841_100000_40000.svs", 
-# "./DATASET/SSSF/SS17-77649_5000_0.svs", "./DATASET/SSSF/SS17-77649_5000_20000.svs", "./DATASET/SSSF/SS17-77649_5000_40000.svs", "./DATASET/SSSF/SS17-77649_5000_60000.svs", "./DATASET/SSSF/SS17-77649_25000_0.svs", 
-# "./DATASET/SSSF/SS17-77649_25000_20000.svs", "./DATASET/SSSF/SS17-77649_25000_40000.svs", "./DATASET/SSSF/SS17-77649_25000_60000.svs", 
-
-# "./DATASET/SSSF/SS17-77649_45000_20000.svs", 
-# "./DATASET/SSSF/SS17-77649_45000_40000.svs", "./DATASET/SSSF/SS17-77649_45000_60000.svs", "./DATASET/SSSF/SS17-77649_65000_0.svs", "./DATASET/SSSF/SS17-77649_65000_20000.svs", "./DATASET/SSSF/SS17-77649_65000_40000.svs", 
-# "./DATASET/SSSF/SS17-77649_65000_60000.svs", "./DATASET/SSSF/SS17-77649_85000_0.svs", "./DATASET/SSSF/SS17-77649_85000_20000.svs", "./DATASET/SSSF/SS17-77649_85000_40000.svs", "./DATASET/SSSF/SS17-77649_85000_60000.svs", 
-# "./DATASET/SSSF/SS18-19871_10000_6000.svs", "./DATASET/SSSF/SS18-19871_10000_26000.svs", "./DATASET/SSSF/SS18-19871_10000_46000.svs", "./DATASET/SSSF/SS18-19871_10000_66000.svs", "./DATASET/SSSF/SS18-19871_30000_6000.svs", 
-# "./DATASET/SSSF/SS18-19871_30000_26000.svs", "./DATASET/SSSF/SS18-19871_30000_46000.svs", "./DATASET/SSSF/SS18-19871_30000_66000.svs", "./DATASET/SSSF/SS18-19871_50000_6000.svs", "./DATASET/SSSF/SS18-19871_50000_26000.svs", 
-# "./DATASET/SSSF/SS18-19871_50000_46000.svs", "./DATASET/SSSF/SS18-19871_50000_66000.svs", "./DATASET/SSSF/SS18-19871_70000_6000.svs", "./DATASET/SSSF/SS18-19871_70000_26000.svs", "./DATASET/SSSF/SS18-19871_70000_46000.svs", 
-# "./DATASET/SSSF/SS18-19871_70000_66000.svs", 
-
-# "./DATASET/LUAC/LUAC_1-1_A2.svs", "./DATASET/LUAC/LUAC_1-1_A3.svs", "./DATASET/LUAC/LUAC_1-1_A4.svs", "./DATASET/LUAC/LUAC_1-1_A5.svs", "./DATASET/LUAC/LUAC_1-1_A6.svs",
-# "./DATASET/LUAC/LUAC_1-1_B1.svs", "./DATASET/LUAC/LUAC_1-1_B2.svs", "./DATASET/LUAC/LUAC_1-1_B4.svs", "./DATASET/LUAC/LUAC_1-1_B5.svs", "./DATASET/LUAC/LUAC_1-1_B6.svs",
-# "./DATASET/LUAC/LUAC_1-1_C1.svs", "./DATASET/LUAC/LUAC_1-1_C2.svs", "./DATASET/LUAC/LUAC_1-1_C3.svs", "./DATASET/LUAC/LUAC_1-1_C4.svs", "./DATASET/LUAC/LUAC_1-1_C6.svs", 
-# "./DATASET/LUAC/LUAC_1-1_D1.svs", "./DATASET/LUAC/LUAC_1-1_D2.svs", "./DATASET/LUAC/LUAC_1-1_D3.svs", "./DATASET/LUAC/LUAC_1-1_D4.svs", "./DATASET/LUAC/LUAC_1-1_D5.svs", "./DATASET/LUAC/LUAC_1-1_D6.svs", 
-# "./DATASET/LUAC/LUAC_1-1_E2.svs", "./DATASET/LUAC/LUAC_1-1_E3.svs", "./DATASET/LUAC/LUAC_1-1_E4.svs", 
-# "./DATASET/LUAC/LUAC_1-1_E5.svs",
-# "./DATASET/LUAC/LUAC_2-1_A2.svs", "./DATASET/LUAC/LUAC_2-1_A3.svs", "./DATASET/LUAC/LUAC_2-1_A4.svs", "./DATASET/LUAC/LUAC_2-1_A5.svs",
-# "./DATASET/LUAC/LUAC_2-1_B1.svs", "./DATASET/LUAC/LUAC_2-1_B2.svs", "./DATASET/LUAC/LUAC_2-1_B3.svs", "./DATASET/LUAC/LUAC_2-1_B4.svs", "./DATASET/LUAC/LUAC_2-1_B5.svs", "./DATASET/LUAC/LUAC_2-1_B6.svs",
-# "./DATASET/LUAC/LUAC_2-1_C1.svs", "./DATASET/LUAC/LUAC_2-1_C2.svs", "./DATASET/LUAC/LUAC_2-1_C3.svs", "./DATASET/LUAC/LUAC_2-1_C4.svs", "./DATASET/LUAC/LUAC_2-1_C5.svs", "./DATASET/LUAC/LUAC_2-1_C6.svs", 
-# "./DATASET/LUAC/LUAC_2-1_D1.svs",  "./DATASET/LUAC/LUAC_2-1_D6.svs", "./DATASET/LUAC/LUAC_2-1_E1.svs", "./DATASET/LUAC/LUAC_2-1_E3.svs", "./DATASET/LUAC/LUAC_2-1_E4.svs", 
-# "./DATASET/LUAC/LUAC_2-1_E6.svs","./DATASET/LUAC/LUAC_3-1_A2.svs", "./DATASET/LUAC/LUAC_3-1_A3.svs", "./DATASET/LUAC/LUAC_3-1_A4.svs","./DATASET/LUAC/LUAC_3-1_B5.svs", 
-# "./DATASET/LUAC/LUAC_3-1_C1.svs", "./DATASET/LUAC/LUAC_3-1_C3.svs", "./DATASET/LUAC/LUAC_3-1_C6.svs", "./DATASET/LUAC/LUAC_3-1_D1.svs", "./DATASET/LUAC/LUAC_3-1_D2.svs", 
-# "./DATASET/LUAC/LUAC_3-1_D4.svs", "./DATASET/LUAC/LUAC_3-1_D5.svs", "./DATASET/LUAC/LUAC_3-1_D6.svs", "./DATASET/LUAC/LUAC_3-1_E1.svs", "./DATASET/LUAC/LUAC_3-1_E3.svs", "./DATASET/LUAC/LUAC_3-1_E4.svs", 
-# "./DATASET/LUAC/LUAC_4-1_B6.svs","./DATASET/LUAC/LUAC_4-1_C3.svs", "./DATASET/LUAC/LUAC_5-1_A4.svs", "./DATASET/LUAC/LUAC_5-1_A5.svs", "./DATASET/LUAC/LUAC_5-1_B5.svs",  "./DATASET/LUAC/LUAC_4-1_E6.svs",
-# "./DATASET/LUAC/LUAC_6-1_B2.svs",  "./DATASET/LUAC/LUAC_6-1_D2.svs", "./DATASET/LUAC/LUAC_6-1_D3.svs", "./DATASET/LUAC/LUAC_6-1_D4.svs", "./DATASET/LUAC/LUAC_6-1_E3.svs", "./DATASET/LUAC/LUAC_7-1_A2.svs", "./DATASET/LUAC/LUAC_7-1_A3.svs", "./DATASET/LUAC/LUAC_7-1_B4.svs", 
-
-
-# "./DATASET/LUAC/LUAC_7-1_D3.svs", "./DATASET/LUAC/LUAC_7-1_D4.svs", 
-# "./DATASET/LUAC/LUAC_7-1_D6.svs", "./DATASET/LUAC/LUAC_7-1_E1.svs", "./DATASET/LUAC/LUAC_7-1_E2.svs", 
-# "./DATASET/LUAC/LUAC_7-1_E3.svs", "./DATASET/LUAC/LUAC_7-1_E4.svs", 
-# "./DATASET/LUAC/LUAC_8-1_A3.svs", "./DATASET/LUAC/LUAC_8-1_B1.svs", "./DATASET/LUAC/LUAC_9-1_A5.svs", "./DATASET/LUAC/LUAC_8-1_B5.svs", 
-# "./DATASET/LUAC/LUAC_10-1_B2.svs", "./DATASET/LUAC/LUAC_10-1_B4.svs", "./DATASET/LUAC/LUAC_10-1_E3.svs", "./DATASET/LUAC/LUAC_10-1_E6.svs", "./DATASET/LUAC/LUAC_11-1_A4.svs", 
-# "./DATASET/LUAC/LUAC_12-1_A6.svs",
-# "./DATASET/LUAC/LUAC_11-1_E4.svs", "./DATASET/LUAC/LUAC_12-1_C6.svs", "./DATASET/LUAC/LUAC_12-1_E1.svs", "./DATASET/LUAC/LUAC_13-1_E4.svs",  
-# "./DATASET/LUAC/LUAC_5-1_E6.svs","./DATASET/LUAC/LUAC_12-1_B1.svs", 
-
-# "./DATASET/LUAC/LUAC_1-1_B3.svs", 
-# "./DATASET/LUAC/LUAC_1-1_E1.svs", "./DATASET/LUAC/LUAC_1-1_E6.svs",
-
-
-# "./DATASET/LUAC/LUAC_2-1_D2.svs", "./DATASET/LUAC/LUAC_2-1_D5.svs",
-# "./DATASET/LUAC/LUAC_2-1_E2.svs", "./DATASET/LUAC/LUAC_2-1_E5.svs",
-
-# "./DATASET/LUAC/LUAC_3-1_A5.svs", "./DATASET/LUAC/LUAC_3-1_A6.svs",
-# "./DATASET/LUAC/LUAC_3-1_B1.svs", "./DATASET/LUAC/LUAC_3-1_B2.svs", "./DATASET/LUAC/LUAC_3-1_B4.svs", "./DATASET/LUAC/LUAC_3-1_B6.svs",
-# "./DATASET/LUAC/LUAC_3-1_C2.svs", "./DATASET/LUAC/LUAC_3-1_C4.svs", "./DATASET/LUAC/LUAC_3-1_C5.svs",
-# "./DATASET/LUAC/LUAC_3-1_D3.svs", 
-# "./DATASET/LUAC/LUAC_3-1_E2.svs","./DATASET/LUAC/LUAC_3-1_E5.svs", 
-
-# "./DATASET/LUAC/LUAC_3-1_E6.svs",
-
-# "./DATASET/LUAC/LUAC_4-1_A2.svs", "./DATASET/LUAC/LUAC_4-1_A3.svs", "./DATASET/LUAC/LUAC_4-1_A4.svs", "./DATASET/LUAC/LUAC_4-1_A5.svs", "./DATASET/LUAC/LUAC_4-1_A6.svs",
-# "./DATASET/LUAC/LUAC_4-1_B1.svs", "./DATASET/LUAC/LUAC_4-1_B2.svs", "./DATASET/LUAC/LUAC_4-1_B3.svs", "./DATASET/LUAC/LUAC_4-1_B4.svs", "./DATASET/LUAC/LUAC_4-1_B5.svs",
-# "./DATASET/LUAC/LUAC_4-1_C1.svs", "./DATASET/LUAC/LUAC_4-1_C2.svs", "./DATASET/LUAC/LUAC_4-1_C4.svs", "./DATASET/LUAC/LUAC_4-1_C5.svs", "./DATASET/LUAC/LUAC_4-1_C6.svs", 
-# "./DATASET/LUAC/LUAC_4-1_D1.svs", "./DATASET/LUAC/LUAC_4-1_D2.svs", "./DATASET/LUAC/LUAC_4-1_D3.svs", "./DATASET/LUAC/LUAC_4-1_D4.svs", "./DATASET/LUAC/LUAC_4-1_D5.svs", "./DATASET/LUAC/LUAC_4-1_D6.svs", 
-# "./DATASET/LUAC/LUAC_4-1_E1.svs", "./DATASET/LUAC/LUAC_4-1_E2.svs", "./DATASET/LUAC/LUAC_4-1_E3.svs", "./DATASET/LUAC/LUAC_4-1_E4.svs", "./DATASET/LUAC/LUAC_4-1_E5.svs",
-
-# "./DATASET/LUAC/LUAC_5-1_A2.svs", "./DATASET/LUAC/LUAC_5-1_A3.svs", "./DATASET/LUAC/LUAC_5-1_A6.svs",
-# "./DATASET/LUAC/LUAC_5-1_B1.svs", "./DATASET/LUAC/LUAC_5-1_B2.svs", "./DATASET/LUAC/LUAC_5-1_B3.svs", "./DATASET/LUAC/LUAC_5-1_B4.svs", "./DATASET/LUAC/LUAC_5-1_B6.svs",
-# "./DATASET/LUAC/LUAC_5-1_C1.svs", "./DATASET/LUAC/LUAC_5-1_C2.svs", "./DATASET/LUAC/LUAC_5-1_C3.svs", "./DATASET/LUAC/LUAC_5-1_C4.svs", "./DATASET/LUAC/LUAC_5-1_C5.svs", "./DATASET/LUAC/LUAC_5-1_C6.svs", 
-# "./DATASET/LUAC/LUAC_5-1_D1.svs", "./DATASET/LUAC/LUAC_5-1_D2.svs", "./DATASET/LUAC/LUAC_5-1_D3.svs", "./DATASET/LUAC/LUAC_5-1_D4.svs", "./DATASET/LUAC/LUAC_5-1_D5.svs", "./DATASET/LUAC/LUAC_5-1_D6.svs", 
-# "./DATASET/LUAC/LUAC_5-1_E1.svs", "./DATASET/LUAC/LUAC_5-1_E2.svs", "./DATASET/LUAC/LUAC_5-1_E3.svs", "./DATASET/LUAC/LUAC_5-1_E4.svs", "./DATASET/LUAC/LUAC_5-1_E5.svs",
-# "./DATASET/LUAC/LUAC_6-1_A2.svs", "./DATASET/LUAC/LUAC_6-1_A3.svs", "./DATASET/LUAC/LUAC_6-1_A4.svs", "./DATASET/LUAC/LUAC_6-1_A5.svs", "./DATASET/LUAC/LUAC_6-1_A6.svs",
-# "./DATASET/LUAC/LUAC_6-1_B1.svs", "./DATASET/LUAC/LUAC_6-1_B3.svs", "./DATASET/LUAC/LUAC_6-1_B4.svs", "./DATASET/LUAC/LUAC_6-1_B5.svs", "./DATASET/LUAC/LUAC_6-1_B6.svs",
-# "./DATASET/LUAC/LUAC_6-1_C1.svs", "./DATASET/LUAC/LUAC_6-1_C2.svs", "./DATASET/LUAC/LUAC_6-1_C3.svs", "./DATASET/LUAC/LUAC_6-1_C4.svs", "./DATASET/LUAC/LUAC_6-1_C6.svs", 
-# "./DATASET/LUAC/LUAC_6-1_D1.svs","./DATASET/LUAC/LUAC_6-1_D5.svs", "./DATASET/LUAC/LUAC_6-1_D6.svs", 
-# "./DATASET/LUAC/LUAC_6-1_E1.svs", "./DATASET/LUAC/LUAC_6-1_E2.svs","./DATASET/LUAC/LUAC_6-1_E5.svs", "./DATASET/LUAC/LUAC_6-1_E6.svs",
-
-# "./DATASET/LUAC/LUAC_7-1_A4.svs", "./DATASET/LUAC/LUAC_7-1_A5.svs", "./DATASET/LUAC/LUAC_7-1_A6.svs",
-# "./DATASET/LUAC/LUAC_7-1_B1.svs", "./DATASET/LUAC/LUAC_7-1_B2.svs", "./DATASET/LUAC/LUAC_7-1_B3.svs", "./DATASET/LUAC/LUAC_7-1_B6.svs",
-# "./DATASET/LUAC/LUAC_7-1_C1.svs", "./DATASET/LUAC/LUAC_7-1_C2.svs", "./DATASET/LUAC/LUAC_7-1_C3.svs", "./DATASET/LUAC/LUAC_7-1_C4.svs", "./DATASET/LUAC/LUAC_7-1_C5.svs", "./DATASET/LUAC/LUAC_7-1_C6.svs", 
-# "./DATASET/LUAC/LUAC_7-1_D1.svs", "./DATASET/LUAC/LUAC_7-1_D2.svs", "./DATASET/LUAC/LUAC_7-1_D5.svs", 
-# "./DATASET/LUAC/LUAC_7-1_E5.svs", "./DATASET/LUAC/LUAC_7-1_E6.svs",
-
-# "./DATASET/LUAC/LUAC_8-1_A2.svs", "./DATASET/LUAC/LUAC_8-1_A4.svs", "./DATASET/LUAC/LUAC_8-1_A5.svs",
-# "./DATASET/LUAC/LUAC_8-1_B2.svs", "./DATASET/LUAC/LUAC_8-1_B3.svs", "./DATASET/LUAC/LUAC_8-1_B4.svs", "./DATASET/LUAC/LUAC_8-1_B6.svs",
-# "./DATASET/LUAC/LUAC_8-1_C1.svs", "./DATASET/LUAC/LUAC_8-1_C2.svs", "./DATASET/LUAC/LUAC_8-1_C3.svs", "./DATASET/LUAC/LUAC_8-1_C4.svs", "./DATASET/LUAC/LUAC_8-1_C5.svs", "./DATASET/LUAC/LUAC_8-1_C6.svs", 
-# "./DATASET/LUAC/LUAC_8-1_D1.svs", "./DATASET/LUAC/LUAC_8-1_D2.svs", "./DATASET/LUAC/LUAC_8-1_D3.svs", "./DATASET/LUAC/LUAC_8-1_D4.svs", "./DATASET/LUAC/LUAC_8-1_D5.svs", "./DATASET/LUAC/LUAC_8-1_D6.svs", 
-# "./DATASET/LUAC/LUAC_8-1_E1.svs", "./DATASET/LUAC/LUAC_8-1_E2.svs", "./DATASET/LUAC/LUAC_8-1_E3.svs", "./DATASET/LUAC/LUAC_8-1_E4.svs", "./DATASET/LUAC/LUAC_8-1_E5.svs",
-
-# "./DATASET/LUAC/LUAC_9-1_A2.svs", "./DATASET/LUAC/LUAC_9-1_A3.svs", "./DATASET/LUAC/LUAC_9-1_A4.svs", "./DATASET/LUAC/LUAC_9-1_A6.svs",
-# "./DATASET/LUAC/LUAC_9-1_B1.svs", "./DATASET/LUAC/LUAC_9-1_B2.svs", "./DATASET/LUAC/LUAC_9-1_B3.svs", "./DATASET/LUAC/LUAC_9-1_B4.svs", "./DATASET/LUAC/LUAC_9-1_B6.svs",
-# "./DATASET/LUAC/LUAC_9-1_C1.svs", "./DATASET/LUAC/LUAC_9-1_C2.svs", "./DATASET/LUAC/LUAC_9-1_C3.svs", "./DATASET/LUAC/LUAC_9-1_C4.svs", "./DATASET/LUAC/LUAC_9-1_C5.svs", "./DATASET/LUAC/LUAC_9-1_C6.svs", 
-# "./DATASET/LUAC/LUAC_9-1_D1.svs", "./DATASET/LUAC/LUAC_9-1_D2.svs", "./DATASET/LUAC/LUAC_9-1_D3.svs", "./DATASET/LUAC/LUAC_9-1_D4.svs", "./DATASET/LUAC/LUAC_9-1_D5.svs", "./DATASET/LUAC/LUAC_9-1_D6.svs", 
-# "./DATASET/LUAC/LUAC_9-1_E1.svs", "./DATASET/LUAC/LUAC_9-1_E2.svs", "./DATASET/LUAC/LUAC_9-1_E3.svs", "./DATASET/LUAC/LUAC_9-1_E4.svs", "./DATASET/LUAC/LUAC_9-1_E5.svs", "./DATASET/LUAC/LUAC_9-1_E6.svs",
-
-# "./DATASET/LUAC/LUAC_10-1_A2.svs", "./DATASET/LUAC/LUAC_10-1_A3.svs", "./DATASET/LUAC/LUAC_10-1_A4.svs", "./DATASET/LUAC/LUAC_10-1_A5.svs", "./DATASET/LUAC/LUAC_10-1_A6.svs",
-# "./DATASET/LUAC/LUAC_10-1_B3.svs", "./DATASET/LUAC/LUAC_10-1_B6.svs",
-# "./DATASET/LUAC/LUAC_10-1_C1.svs", "./DATASET/LUAC/LUAC_10-1_C2.svs", "./DATASET/LUAC/LUAC_10-1_C3.svs", "./DATASET/LUAC/LUAC_10-1_C4.svs", "./DATASET/LUAC/LUAC_10-1_C5.svs", "./DATASET/LUAC/LUAC_10-1_C6.svs", 
-# "./DATASET/LUAC/LUAC_10-1_D1.svs", "./DATASET/LUAC/LUAC_10-1_D2.svs", "./DATASET/LUAC/LUAC_10-1_D3.svs", "./DATASET/LUAC/LUAC_10-1_D4.svs", "./DATASET/LUAC/LUAC_10-1_D5.svs", "./DATASET/LUAC/LUAC_10-1_D6.svs", 
-# "./DATASET/LUAC/LUAC_10-1_E1.svs", "./DATASET/LUAC/LUAC_10-1_E4.svs", "./DATASET/LUAC/LUAC_10-1_E5.svs", 
-
-# "./DATASET/LUAC/LUAC_11-1_A2.svs", "./DATASET/LUAC/LUAC_11-1_A3.svs", "./DATASET/LUAC/LUAC_11-1_A5.svs", "./DATASET/LUAC/LUAC_11-1_A6.svs",
-# "./DATASET/LUAC/LUAC_11-1_B1.svs", "./DATASET/LUAC/LUAC_11-1_B2.svs", "./DATASET/LUAC/LUAC_11-1_B3.svs", "./DATASET/LUAC/LUAC_11-1_B4.svs", "./DATASET/LUAC/LUAC_11-1_B5.svs", "./DATASET/LUAC/LUAC_11-1_B6.svs",
-# "./DATASET/LUAC/LUAC_11-1_C1.svs", "./DATASET/LUAC/LUAC_11-1_C2.svs", "./DATASET/LUAC/LUAC_11-1_C4.svs", "./DATASET/LUAC/LUAC_11-1_C5.svs", "./DATASET/LUAC/LUAC_11-1_C6.svs", 
-# "./DATASET/LUAC/LUAC_11-1_D1.svs", "./DATASET/LUAC/LUAC_11-1_D3.svs", "./DATASET/LUAC/LUAC_11-1_D4.svs", "./DATASET/LUAC/LUAC_11-1_D5.svs", "./DATASET/LUAC/LUAC_11-1_D6.svs", 
-# "./DATASET/LUAC/LUAC_11-1_E1.svs", "./DATASET/LUAC/LUAC_11-1_E2.svs", "./DATASET/LUAC/LUAC_11-1_E3.svs", "./DATASET/LUAC/LUAC_11-1_E5.svs", "./DATASET/LUAC/LUAC_11-1_E6.svs",
-
-# "./DATASET/LUAC/LUAC_12-1_A2.svs", "./DATASET/LUAC/LUAC_12-1_A3.svs", "./DATASET/LUAC/LUAC_12-1_A4.svs", "./DATASET/LUAC/LUAC_12-1_A5.svs", 
-# "./DATASET/LUAC/LUAC_12-1_B2.svs", "./DATASET/LUAC/LUAC_12-1_B3.svs", "./DATASET/LUAC/LUAC_12-1_B4.svs", "./DATASET/LUAC/LUAC_12-1_B5.svs", "./DATASET/LUAC/LUAC_12-1_B6.svs",
-# "./DATASET/LUAC/LUAC_12-1_C1.svs", "./DATASET/LUAC/LUAC_12-1_C2.svs", "./DATASET/LUAC/LUAC_12-1_C4.svs", "./DATASET/LUAC/LUAC_12-1_C5.svs", 
-# "./DATASET/LUAC/LUAC_12-1_D1.svs", "./DATASET/LUAC/LUAC_12-1_D3.svs", "./DATASET/LUAC/LUAC_12-1_D5.svs", "./DATASET/LUAC/LUAC_12-1_D6.svs", 
-# "./DATASET/LUAC/LUAC_12-1_E2.svs", "./DATASET/LUAC/LUAC_12-1_E3.svs", "./DATASET/LUAC/LUAC_12-1_E5.svs", "./DATASET/LUAC/LUAC_12-1_E6.svs",
-
-# "./DATASET/LUAC/LUAC_13-1_A2.svs", "./DATASET/LUAC/LUAC_13-1_A3.svs", "./DATASET/LUAC/LUAC_13-1_A4.svs", "./DATASET/LUAC/LUAC_13-1_A5.svs", "./DATASET/LUAC/LUAC_13-1_A6.svs",
-# "./DATASET/LUAC/LUAC_13-1_B1.svs", "./DATASET/LUAC/LUAC_13-1_B2.svs", "./DATASET/LUAC/LUAC_13-1_B3.svs", "./DATASET/LUAC/LUAC_13-1_B4.svs", "./DATASET/LUAC/LUAC_13-1_B5.svs", "./DATASET/LUAC/LUAC_13-1_B6.svs",
-# "./DATASET/LUAC/LUAC_13-1_C1.svs", "./DATASET/LUAC/LUAC_13-1_C2.svs", "./DATASET/LUAC/LUAC_13-1_C3.svs", "./DATASET/LUAC/LUAC_13-1_C5.svs", "./DATASET/LUAC/LUAC_13-1_C6.svs", 
-# "./DATASET/LUAC/LUAC_13-1_D1.svs", "./DATASET/LUAC/LUAC_13-1_D2.svs", "./DATASET/LUAC/LUAC_13-1_D3.svs", "./DATASET/LUAC/LUAC_13-1_D4.svs", "./DATASET/LUAC/LUAC_13-1_D5.svs", "./DATASET/LUAC/LUAC_13-1_D6.svs", 
-# "./DATASET/LUAC/LUAC_13-1_E1.svs", "./DATASET/LUAC/LUAC_13-1_E2.svs", "./DATASET/LUAC/LUAC_13-1_E5.svs", "./DATASET/LUAC/LUAC_13-1_E6.svs",
-
-# "./DATASET/LUAC/LUAC_14-1_A2.svs", "./DATASET/LUAC/LUAC_14-1_A3.svs", "./DATASET/LUAC/LUAC_14-1_A4.svs", "./DATASET/LUAC/LUAC_14-1_A5.svs", "./DATASET/LUAC/LUAC_14-1_A6.svs",
-# "./DATASET/LUAC/LUAC_14-1_B1.svs", "./DATASET/LUAC/LUAC_14-1_B2.svs", "./DATASET/LUAC/LUAC_14-1_B4.svs", "./DATASET/LUAC/LUAC_14-1_B5.svs", "./DATASET/LUAC/LUAC_14-1_B6.svs",
-# "./DATASET/LUAC/LUAC_14-1_C1.svs", "./DATASET/LUAC/LUAC_14-1_C2.svs", "./DATASET/LUAC/LUAC_14-1_C3.svs", "./DATASET/LUAC/LUAC_14-1_C4.svs", "./DATASET/LUAC/LUAC_14-1_C5.svs", "./DATASET/LUAC/LUAC_14-1_C6.svs", 
-# "./DATASET/LUAC/LUAC_14-1_D1.svs", "./DATASET/LUAC/LUAC_14-1_D2.svs", "./DATASET/LUAC/LUAC_14-1_D3.svs", "./DATASET/LUAC/LUAC_14-1_D4.svs", "./DATASET/LUAC/LUAC_14-1_D5.svs", "./DATASET/LUAC/LUAC_14-1_D6.svs"
-
-
-
-
-
-]
-
-ALK_POSITIVE_TUMOR = [
-
-# 안되는거
-# "./DATASET/LUAC/LUAC_12-1_C3.svs", "./DATASET/LUAC/LUAC_14-1_B3.svs", "./DATASET/YS/YS20-2317_20000_20000.svs", 
-
-
-
-# "./DATASET/SSSF/SS21-26050_5000_0.svs", "./DATASET/SSSF/SS21-26050_5000_20000.svs", "./DATASET/SSSF/SS21-26050_5000_40000.svs", "./DATASET/SSSF/SS21-26050_5000_60000.svs", "./DATASET/SSSF/SS21-26050_25000_0.svs", 
-# "./DATASET/SSSF/SS21-26050_25000_20000.svs", "./DATASET/SSSF/SS21-26050_25000_40000.svs", "./DATASET/SSSF/SS21-26050_25000_60000.svs", "./DATASET/SSSF/SS21-26050_45000_0.svs", "./DATASET/SSSF/SS21-26050_45000_20000.svs", 
-# "./DATASET/SSSF/SS21-26050_45000_40000.svs", "./DATASET/SSSF/SS21-26050_45000_60000.svs", "./DATASET/SSSF/SS21-26050_65000_20000.svs", "./DATASET/SSSF/SS21-26050_65000_40000.svs", "./DATASET/SSSF/SS21-26050_65000_60000.svs", 
-# "./DATASET/SSSF/SS21-26050_85000_20000.svs", "./DATASET/SSSF/SS21-26050_85000_40000.svs", "./DATASET/SSSF/SS21-26050_85000_60000.svs", "./DATASET/SSSF/SS22-26507_55000_23000.svs", "./DATASET/SSSF/SS22-26507_55000_43000.svs", 
-# "./DATASET/SSSF/SS22-26507_55000_63000.svs", "./DATASET/SSSF/SS22-26507_75000_3000.svs", "./DATASET/SSSF/SS22-26507_75000_23000.svs", "./DATASET/SSSF/SS22-26507_75000_43000.svs", "./DATASET/SSSF/SS22-26507_75000_63000.svs", 
-# "./DATASET/SSSF/SS22-26507_95000_3000.svs", "./DATASET/SSSF/SS22-26507_95000_23000.svs", "./DATASET/SSSF/SS22-65597_9000_9000.svs", "./DATASET/SSSF/SS22-65597_9000_29000.svs", "./DATASET/SSSF/SS22-65597_10000_8000.svs", 
-# "./DATASET/SSSF/SS22-65597_10000_28000.svs", "./DATASET/SSSF/SS22-65597_29000_9000.svs", "./DATASET/SSSF/SS22-65597_29000_29000.svs", "./DATASET/SSSF/SS22-65597_30000_8000.svs", "./DATASET/SSSF/SS22-65597_30000_28000.svs", 
-# "./DATASET/SSSF/SS22-65597_49000_9000.svs", "./DATASET/SSSF/SS22-65597_49000_29000.svs", "./DATASET/SSSF/SS22-65597_50000_8000.svs", "./DATASET/SSSF/SS22-65597_50000_28000.svs", 
-
-
-# "./DATASET/LUAC/LUAC_1-1_C5.svs", "./DATASET/LUAC/LUAC_2-1_A6.svs",  "./DATASET/LUAC/LUAC_6-1_C5.svs", "./DATASET/LUAC/LUAC_8-1_A6.svs", 
-
-# "./DATASET/LUAC/LUAC_2-1_D3.svs", "./DATASET/LUAC/LUAC_2-1_D4.svs",
-# "./DATASET/LUAC/LUAC_8-1_E6.svs", 
-# "./DATASET/LUAC/LUAC_10-1_B1.svs", "./DATASET/LUAC/LUAC_10-1_B5.svs", "./DATASET/LUAC/LUAC_10-1_E2.svs", "./DATASET/LUAC/LUAC_11-1_C3.svs", "./DATASET/LUAC/LUAC_11-1_D2.svs", 
-# "./DATASET/LUAC/LUAC_13-1_C4.svs", 
-
-
-# "./DATASET/YS/YS12-1606_0_23000.svs", "./DATASET/YS/YS12-1606_0_43000.svs", "./DATASET/YS/YS12-1606_0_63000.svs", "./DATASET/YS/YS12-1606_20000_23000.svs", "./DATASET/YS/YS12-1606_20000_43000.svs", "./DATASET/YS/YS12-1606_20000_63000.svs",
-# "./DATASET/YS/YS15-1117_0_25000.svs", "./DATASET/YS/YS15-1117_0_45000.svs", "./DATASET/YS/YS15-1117_0_65000.svs", "./DATASET/YS/YS15-1117_20000_25000.svs", "./DATASET/YS/YS15-1117_20000_45000.svs", "./DATASET/YS/YS15-1117_20000_65000.svs",
-# "./DATASET/YS/YS16-2177_0_20000.svs", "./DATASET/YS/YS16-2177_0_40000.svs", "./DATASET/YS/YS16-2177_0_60000.svs", "./DATASET/YS/YS16-2177_20000_20000.svs", "./DATASET/YS/YS16-2177_20000_40000.svs", "./DATASET/YS/YS16-2177_20000_60000.svs",
-# "./DATASET/YS/YS17-2284_0_3000.svs", "./DATASET/YS/YS17-2284_0_23000.svs", "./DATASET/YS/YS17-2284_0_43000.svs", "./DATASET/YS/YS17-2284_20000_3000.svs", "./DATASET/YS/YS17-2284_20000_23000.svs", "./DATASET/YS/YS17-2284_20000_43000.svs",
-# "./DATASET/YS/YS18-1737_0_25000.svs", "./DATASET/YS/YS18-1737_0_45000.svs", "./DATASET/YS/YS18-1737_0_65000.svs", "./DATASET/YS/YS18-1737_20000_25000.svs", 
-# "./DATASET/YS/YS18-1737_20000_45000.svs", "./DATASET/YS/YS18-1737_20000_65000.svs",
-# "./DATASET/YS/YS18-3319_0_0.svs", "./DATASET/YS/YS18-3319_0_20000.svs", "./DATASET/YS/YS18-3319_0_40000.svs", "./DATASET/YS/YS18-3319_20000_0.svs", "./DATASET/YS/YS18-3319_20000_20000.svs", "./DATASET/YS/YS18-3319_20000_40000.svs",
-# "./DATASET/YS/YS19-0568_0_0.svs", "./DATASET/YS/YS19-0568_0_20000.svs", "./DATASET/YS/YS19-0568_0_40000.svs", "./DATASET/YS/YS19-0568_20000_0.svs", "./DATASET/YS/YS19-0568_20000_20000.svs", "./DATASET/YS/YS19-0568_20000_40000.svs",
-# "./DATASET/YS/YS19-0946_0_35000.svs", "./DATASET/YS/YS19-0946_0_55000.svs", "./DATASET/YS/YS19-0946_20000_35000.svs", "./DATASET/YS/YS19-0946_20000_55000.svs",
-# "./DATASET/YS/YS19-2439_0_20000.svs", "./DATASET/YS/YS19-2439_0_40000.svs", "./DATASET/YS/YS19-2439_0_60000.svs", "./DATASET/YS/YS19-2439_20000_20000.svs", "./DATASET/YS/YS19-2439_20000_40000.svs", "./DATASET/YS/YS19-2439_20000_60000.svs",
-# "./DATASET/YS/YS20-0561_0_15000.svs", 
-# "./DATASET/YS/YS20-0561_0_35000.svs", "./DATASET/YS/YS20-0561_0_55000.svs", "./DATASET/YS/YS20-0561_20000_15000.svs", "./DATASET/YS/YS20-0561_20000_35000.svs", "./DATASET/YS/YS20-0561_20000_55000.svs",
-# "./DATASET/YS/YS20-2317_0_0.svs", "./DATASET/YS/YS20-2317_0_20000.svs", "./DATASET/YS/YS20-2317_0_40000.svs", "./DATASET/YS/YS20-2317_20000_0.svs", 
-
-# "./DATASET/YS/YS20-2317_20000_40000.svs",
-
-
-# "./DATASET/TCGA/TCGA-67aD.svs", "./DATASET/TCGA/TCGA-67aT.svs", "./DATASET/TCGA/TCGA-78a_.svs", "./DATASET/TCGA/TCGA-86a_.svs"
-
-]
+from PIL import Image, ImageDraw, ImageCms
+import h5py
+import openslide
 import os
-from PIL import Image
-import cv2
-import numpy as np
 from tqdm import tqdm
 import time
-import openslide
+import numpy as np
 
-RED_THRESHOLD = 250
+svs_images = [
+# "SS18-19871_14000_10000", "SS18-19871_14000_30000", "SS18-19871_14000_50000", "SS18-19871_34000_40000", "SS18-19871_34000_60000", "SS18-19871_54000_10000", "SS18-19871_54000_30000", 
+# "SS18-19871_54000_50000", "SS18-19871_74000_20000", "SS18-19871_74000_40000", 
 
-def is_verify(patch, patch_size):
-    sum_r, sum_g, sum_b = 0, 0, 0
-    for pixel in patch.getdata():
-        sum_r += pixel[0]
-        sum_g += pixel[1]
-        sum_b += pixel[2]
-    p = patch.load()
+# "SS21-26050_5000_0", "SS21-26050_5000_20000", "SS21-26050_5000_40000", "SS21-26050_5000_60000", "SS21-26050_25000_0", "SS21-26050_25000_20000", "SS21-26050_25000_40000", 
+# "SS21-26050_25000_60000", "SS21-26050_45000_0", "SS21-26050_45000_20000", "SS21-26050_45000_40000", "SS21-26050_45000_60000", "SS21-26050_65000_0", "SS21-26050_65000_20000", 
+# "SS21-26050_65000_40000", "SS21-26050_65000_60000", "SS21-26050_85000_0", "SS21-26050_85000_20000", "SS21-26050_85000_40000", "SS21-26050_85000_60000",
 
-    total = sum_r + sum_g + sum_b
+# "SS22-6559_9000_9000", "SS22-6559_9000_29000", "SS22-6559_29000_9000", "SS22-6559_29000_29000", "SS22-6559_49000_9000", "SS22-6559_49000_29000", 
 
-    if total == 0:
-        return False
-    if sum_r / (patch_size ** 2) >= RED_THRESHOLD:
+# "SS22-26507_55000_23000", "SS22-26507_55000_43000", "SS22-26507_55000_63000", "SS22-26507_75000_3000", "SS22-26507_75000_23000", "SS22-26507_75000_43000", "SS22-26507_75000_63000", "SS22-26507_95000_3000", "SS22-26507_95000_23000", 
+
+
+# "YS12-1606_0_23000", "YS12-1606_0_43000", "YS12-1606_0_63000", "YS12-1606_20000_23000", "YS12-1606_20000_43000", "YS12-1606_20000_63000", 
+
+# "YS15-1117_0_25000", "YS15-1117_0_45000", "YS15-1117_0_65000", "YS15-1117_20000_25000", "YS15-1117_20000_45000", "YS15-1117_20000_65000", 
+
+# "YS16-2177_0_20000", "YS16-2177_0_40000", "YS16-2177_0_60000", "YS16-2177_20000_20000", "YS16-2177_20000_40000", "YS16-2177_20000_60000", 
+
+# "YS17-2284_0_3000", "YS17-2284_0_23000", "YS17-2284_0_43000", "YS17-2284_20000_3000", "YS17-2284_20000_23000", "YS17-2284_20000_43000", 
+
+# "YS18-1737_0_25000", "YS18-1737_0_45000", "YS18-1737_0_65000", "YS18-1737_20000_25000", "YS18-1737_20000_45000", "YS18-1737_20000_65000", 
+
+# "YS18-3319_0_0", "YS18-3319_0_20000", "YS18-3319_0_40000", "YS18-3319_20000_0", "YS18-3319_20000_20000", "YS18-3319_20000_40000", 
+
+# "YS19-0568_0_0", "YS19-0568_0_20000", "YS19-0568_0_40000", "YS19-0568_20000_0", "YS19-0568_20000_20000", "YS19-0568_20000_40000", 
+
+# "YS19-0946_0_35000", "YS19-0946_0_55000", "YS19-0946_20000_35000", "YS19-0946_20000_55000", 
+
+# "YS19-2439_0_20000", "YS19-2439_0_40000", "YS19-2439_0_60000", "YS19-2439_20000_20000", "YS19-2439_20000_40000", "YS19-2439_20000_60000", 
+
+# "YS20-0561_0_15000", "YS20-0561_0_35000", "YS20-0561_0_55000", "YS20-0561_20000_15000", "YS20-0561_20000_35000", "YS20-0561_20000_55000", 
+
+# "YS20-2317_0_0", "YS20-2317_0_20000", "YS20-2317_0_40000", "YS20-2317_20000_0", "YS20-2317_20000_20000", "YS20-2317_20000_40000"
+
+
+# "TCGA-67-6216-01Z-00-DX1--a", "TCGA-67-6215-01A-01-TS1--a", "TCGA-78-7163-01A-01-TS1--a", 
+"TCGA-86-A4P8-01Z-00-DX1--a"
+]
+
+# base_path : CLAM의 결과 (png, h5 파일이 있는 directory)
+base_path = "/home/lab/Tumor_Detection/CLAM/heatmaps/heatmap_raw_results/HEATMAP_OUTPUT/ POS/"
+# svs_base_path : svs 파일이 있는 directory
+svs_base_path = "/home/lab/Tumor_Detection/CLAM/heatmaps/demo/slides/"
+
+
+
+def extract_coords(file_path):
+    with h5py.File(file_path, 'r') as file:
+        coords_dataset = file['coords']
+        coords_data = coords_dataset[:]
+        return coords_data
+
+def check_red_threshold(patch, patch_size, red_threshold):
+    LAB_image = patch.convert("LAB")
+    _, a, _ = LAB_image.split()
+
+    average_a = sum(a.getdata()) / (patch.width * patch.height)
+
+    if average_a > red_threshold:
         return True
     else:
         return False
-    
-def is_matching(svs_name, JPEG_FOLDER, length):
-    for jpeg_name in os.listdir(JPEG_FOLDER):
-        if svs_name == jpeg_name[:length]:
-            print(jpeg_name)
-            return Image.open(os.path.join(JPEG_FOLDER, jpeg_name)).convert('RGB')
-        
-def patching(slide, y, x, svs_jpeg_ratio):
-    PATCH_SIZE = 32
-    level = 0
-    image = slide.read_region((y * svs_jpeg_ratio, x * svs_jpeg_ratio), level, (PATCH_SIZE, PATCH_SIZE))
-    patch = np.array(image.convert('RGB'))
 
+
+
+
+
+
+def patching(slide, y, x, PATCH_SIZE, tau):
+    level = 0
+    image = slide.read_region((y * tau, x * tau,), level, (PATCH_SIZE, PATCH_SIZE))
+    patch = np.array(image.convert('RGB'))
     return patch
 
-def make_patch(NEGATIVE_FOLDER, POSITIVE_FOLDER, JPEG_FOLDER):
-    PATCH_SIZE = 32
 
-    SVS_NEGATIVE_COUNT = len(NEGATIVE_FOLDER)
-    SVS_POSITIVE_COUNT = len(POSITIVE_FOLDER)
-    print(f"Negative : {SVS_NEGATIVE_COUNT}, Positive : {SVS_POSITIVE_COUNT}")
-    JPEG_COUNT = len(os.listdir(JPEG_FOLDER))
-    print(JPEG_COUNT)
+def make_patch(file_list, patch_size, RED_THRESHOLD):
+    for svs_name in file_list:
 
-    for idx in tqdm(range(SVS_NEGATIVE_COUNT)):
-        print(len(NEGATIVE_FOLDER[idx].split("/")[3]))
-        _length = len(NEGATIVE_FOLDER[idx].split("/")[3])-4
-        print(_length)
-        current_svs_name = NEGATIVE_FOLDER[idx].split("/")[3][:_length]
-        print(f"현재 svs : {current_svs_name}")
-        current_svs = openslide.open_slide(NEGATIVE_FOLDER[idx])
-        print(current_svs)
-        current_jpeg = is_matching(current_svs_name, JPEG_FOLDER, _length)
-        print(f"현재 JPEG : {current_jpeg}")
+        if not os.path.exists(f"PATCH_h5/{svs_name}"):
+            os.makedirs(f"PATCH_h5/{svs_name}")
+        
+        output_path = f"PATCH_h5/{svs_name}"
+        svs_file = openslide.open_slide(os.path.join(svs_base_path + svs_name + ".svs"))
+        blockmap_file = Image.open(os.path.join(base_path, svs_name, svs_name + "_blockmap.png"))
+    
+        h5_file = os.path.join(base_path, svs_name, svs_name + ".h5")
+        coords_list = extract_coords(h5_file)
 
-        print(f"현재 JPEG width, height : {current_jpeg.width}, {current_jpeg.height}")
-        print(f"현재 SVS width, height : {current_svs.level_dimensions[0]}")
-        print(f"JPEG과 SVS의 비율 : {current_svs.level_dimensions[0][0] / current_jpeg.width}, {current_svs.level_dimensions[0][1] / current_jpeg.height}")
+        tau = int(svs_file.level_dimensions[0][0] / blockmap_file.width)
 
-        tau = int(current_svs.level_dimensions[0][0] / current_jpeg.width)
-        print(tau)
+        print(f"\n{svs_name}의 patch 개수 : {coords_list.shape[0]}")
 
-        JPEG_PATCH_SIZE = int(PATCH_SIZE / tau)
+        success_patch = 0
+        fail_patch = 0
 
-        if not os.path.exists(f"PATCH_20231028/NEGATIVE_{RED_THRESHOLD}/{current_svs_name}"):
-            os.makedirs(f"PATCH_20231028/NEGATIVE_{RED_THRESHOLD}/{current_svs_name}")
 
-        height, width = current_jpeg.height, current_jpeg.width
+        draw = ImageDraw.Draw(blockmap_file)
         start_time = time.time()
 
-        for h in tqdm(range(0, current_jpeg.height, JPEG_PATCH_SIZE)):
-            for w in range(0, current_jpeg.width, JPEG_PATCH_SIZE):
-                patch = current_jpeg.crop((h, w, h + JPEG_PATCH_SIZE, w + JPEG_PATCH_SIZE))
+        for i, (start_x, start_y) in enumerate(coords_list):
+            start_x = int(start_x / tau)
+            start_y = int(start_y / tau)
 
-                if is_verify(patch, JPEG_PATCH_SIZE):
-                    patch_ = patching(current_svs, h, w, tau)
-                    filename = f"{current_svs_name}_{h}_{w}.png"
 
-                    patch_save_folder_name = f"PATCH_20231028/NEGATIVE_{RED_THRESHOLD}/{current_svs_name}"
-                    Image.fromarray(patch_).save(os.path.join(patch_save_folder_name, filename))
 
+            patch = blockmap_file.crop((start_x, start_y, start_x + patch_size, start_y + patch_size)).convert('RGB')
+            
+            if check_red_threshold(patch, patch_size, RED_THRESHOLD):
+                success_patch += 1
+                patch_ = patching(svs_file, start_y, start_x, patch_size, tau)
+                filename = f"{svs_name}_{start_x}_{start_y}.png"
+                Image.fromarray(patch_).save(os.path.join(output_path, filename))
+                draw.rectangle((start_x, start_y, start_x + patch_size, start_y + patch_size), outline=(0, 0, 0))
+
+            else:
+                fail_patch += 1
+    
         end_time = time.time()
-        print(f"{current_svs_name} Patch 생성 소요시간 : {end_time - start_time}")
+        blockmap_file.save(f"./heatmap/{svs_name}_heatmap.jpg")
+        print(f"{svs_name} patch 생성 소요시간 : {end_time - start_time}")
+        if success_patch + fail_patch == coords_list.shape[0]:
+            print(f"Patch 개수 : {success_patch} / {coords_list.shape[0]}")
+        else:
+            print("error")
 
 
-    for idx in tqdm(range(SVS_POSITIVE_COUNT)):
-        print(len(POSITIVE_FOLDER[idx].split("/")[3]))
-        _length = len(POSITIVE_FOLDER[idx].split("/")[3])-4
-        print(_length)
-        current_svs_name = POSITIVE_FOLDER[idx].split("/")[3][:_length]
-        print(f"현재 svs : {current_svs_name}")
-        current_svs = openslide.open_slide(POSITIVE_FOLDER[idx])
-        current_jpeg = is_matching(current_svs_name, JPEG_FOLDER, _length)
+patch_size = 32
+RED_THRESHOLD = 170
 
-        print(f"현재 JPEG width, height : {current_jpeg.width}, {current_jpeg.height}")
-        print(f"현재 SVS width, height : {current_svs.level_dimensions[0]}")
-        print(f"JPEG과 SVS의 비율 : {current_svs.level_dimensions[0][0] / current_jpeg.width}, {current_svs.level_dimensions[0][1] / current_jpeg.height}")
 
-        tau = int(current_svs.level_dimensions[0][0] / current_jpeg.width)
-        print(tau)
+make_patch(svs_images, patch_size, RED_THRESHOLD)
 
-        JPEG_PATCH_SIZE = int(PATCH_SIZE / tau)
 
-        if not os.path.exists(f"PATCH_20231028/POSITIVE_{RED_THRESHOLD}/{current_svs_name}"):
-            os.makedirs(f"PATCH_20231028/POSITIVE_{RED_THRESHOLD}/{current_svs_name}")
-
-        height, width = current_jpeg.height, current_jpeg.width
-        start_time = time.time()
-
-        for h in tqdm(range(0, current_jpeg.height, JPEG_PATCH_SIZE)):
-            for w in range(0, current_jpeg.width, JPEG_PATCH_SIZE):
-                patch = current_jpeg.crop((h, w, h + JPEG_PATCH_SIZE, w + JPEG_PATCH_SIZE))
-
-                if is_verify(patch, JPEG_PATCH_SIZE):
-                    patch_ = patching(current_svs, h, w, tau)
-                    filename = f"{current_svs_name}_{h}_{w}.png"
-
-                    patch_save_folder_name = f"PATCH_20231028/POSITIVE_{RED_THRESHOLD}/{current_svs_name}"
-                    Image.fromarray(patch_).save(os.path.join(patch_save_folder_name, filename))
-
-        end_time = time.time()
-        print(f"{current_svs_name} Patch 생성 소요시간 : {end_time - start_time}")
-
-make_patch(ALK_NEGATIVE_TUMOR, ALK_POSITIVE_TUMOR, JPEG_FOLDER= "JPEG_FOLDER")
