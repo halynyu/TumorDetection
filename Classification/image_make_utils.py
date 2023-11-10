@@ -11,7 +11,7 @@ import json
 from tqdm import tqdm
 import time
 
-CLAM_PATH = "/home/lab/Tumor_Detection/Classification/JPEG_FOLDER"
+base_path = "/home/lab/Tumor_Detection/CLAM/heatmaps/heatmap_raw_results/HEATMAP_OUTPUT/ POS/"
 
 def find_CLAM_JPEG(folder_name, tumor_name) :
     matching_name_length = len(tumor_name)
@@ -26,7 +26,7 @@ def make_HeatMap(model, device):
     sigmoid = nn.Sigmoid()
 
     TEST_PATH = []
-    with open('/home/lab/Tumor_Detection/tumorAnnotation_tmp.json', 'r') as f:
+    with open('/home/lab/Tumor_Detection/tumorAnnotation.json', 'r') as f:
         json_data = json.load(f)
 
 
@@ -36,7 +36,7 @@ def make_HeatMap(model, device):
 
     # print(f"test path : {TEST_PATH}")
 
-    for path in tqdm(TEST_PATH):
+    for path in tqdm(base_path):
         folder_name, tumor_name = path.split('/')[0:1], path.split('/')[2]
 
         print(f'folder_name : {folder_name} |  tumor_name : {tumor_name}')

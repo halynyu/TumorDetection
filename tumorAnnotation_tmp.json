@@ -228,7 +228,7 @@
   ],
 
   "NEGATIVE_TRAIN_SSSF" : [
-    "Classification/PATCH_h5/SF18-00841_0_0", "Classification/PATCH_h5/SF18-00841_0_20000", "Classification/PATCH_h5/SF18-00841_0_40000", "Classification/PATCH_h5/SF18-00841_0_60000",
+    "Classification/PATCH_h5/SF18-00841_0_20000", "Classification/PATCH_h5/SF18-00841_0_40000", "Classification/PATCH_h5/SF18-00841_0_60000",
     "Classification/PATCH_h5/SF18-00841_20000_0", "Classification/PATCH_h5/SF18-00841_20000_20000", "Classification/PATCH_h5/SF18-00841_20000_40000", "Classification/PATCH_h5/SF18-00841_20000_60000",
     "Classification/PATCH_h5/SF18-00841_40000_0", "Classification/PATCH_h5/SF18-00841_40000_20000", "Classification/PATCH_h5/SF18-00841_40000_40000", "Classification/PATCH_h5/SF18-00841_40000_60000",
     "Classification/PATCH_h5/SF18-00841_60000_0", "Classification/PATCH_h5/SF18-00841_60000_20000", "Classification/PATCH_h5/SF18-00841_60000_40000", "Classification/PATCH_h5/SF18-00841_60000_60000",
@@ -255,7 +255,7 @@
   ],
 
   "POSITIVE_TEST_TCGA" : [
-    "Classification/PATCH_h5/TCGA-TCGA-78-7163-01A-01-TS1--a"
+    "Classification/PATCH_h5/TCGA-78-7163-01A-01-TS1--a"
 ],
 
   "POSITIVE_TEST_LUAC" : [
@@ -307,7 +307,7 @@
     "Classification/PATCH_h5/SS17-77649_25000_0", "Classification/PATCH_h5/SS17-77649_25000_20000", "Classification/PATCH_h5/SS17-77649_25000_40000", "Classification/PATCH_h5/SS17-77649_25000_60000",
     "Classification/PATCH_h5/SS17-77649_45000_0", "Classification/PATCH_h5/SS17-77649_45000_20000", "Classification/PATCH_h5/SS17-77649_45000_40000", "Classification/PATCH_h5/SS17-77649_45000_60000",
     "Classification/PATCH_h5/SS17-77649_65000_0", "Classification/PATCH_h5/SS17-77649_65000_20000", "Classification/PATCH_h5/SS17-77649_65000_40000", "Classification/PATCH_h5/SS17-77649_65000_60000",
-    "Classification/PATCH_h5/SS17-77649_85000_0", "Classification/PATCH_h5/SS17-77649_85000_20000", "Classification/PATCH_h5/SS17-77649_85000_40000", "Classification/PATCH_h5/SS17-77649_85000_60000"
+    "Classification/PATCH_h5/SS17-77649_85000_0"
   ],
 
 
@@ -326,9 +326,9 @@
 ],
 
   "POSITIVE_VALIDATION_SSSF" : [
-    "Classification/PATCH_h5/SS22-65597_9000_9000", "Classification/PATCH_h5/SS22-65597_9000_29000",
-    "Classification/PATCH_h5/SS22-65597_29000_9000", "Classification/PATCH_h5/SS22-65597_29000_29000",
-    "Classification/PATCH_h5/SS22-65597_49000_9000", "Classification/PATCH_h5/SS22-65597_49000_29000"
+    "Classification/PATCH_h5/SS22-6559_9000_9000", "Classification/PATCH_h5/SS22-6559_9000_29000",
+    "Classification/PATCH_h5/SS22-6559_29000_9000", "Classification/PATCH_h5/SS22-6559_29000_29000",
+    "Classification/PATCH_h5/SS22-6559_49000_9000", "Classification/PATCH_h5/SS22-6559_49000_29000"
   ],
 
 
@@ -358,10 +358,10 @@
 ],
 
   "NEGATIVE_VALIDATION_SSSF" : [
-    "Classification/PATCH_h5/SS18-19871_10000_6000", "Classification/PATCH_h5/SS18-19871_10000_26000", "Classification/PATCH_h5/SS18-19871_10000_46000", "Classification/PATCH_h5/SS18-19871_10000_66000",
-    "Classification/PATCH_h5/SS18-19871_30000_6000", "Classification/PATCH_h5/SS18-19871_30000_26000", "Classification/PATCH_h5/SS18-19871_30000_46000", "Classification/PATCH_h5/SS18-19871_30000_66000",
-    "Classification/PATCH_h5/SS18-19871_50000_6000", "Classification/PATCH_h5/SS18-19871_50000_26000", "Classification/PATCH_h5/SS18-19871_50000_46000", "Classification/PATCH_h5/SS18-19871_50000_66000",
-    "Classification/PATCH_h5/SS18-19871_70000_6000", "Classification/PATCH_h5/SS18-19871_70000_26000", "Classification/PATCH_h5/SS18-19871_70000_46000", "Classification/PATCH_h5/SS18-19871_70000_66000"
+    "Classification/PATCH_h5/SS18-19871_14000_10000", "Classification/PATCH_h5/SS18-19871_14000_30000", "Classification/PATCH_h5/SS18-19871_14000_50000",
+    "Classification/PATCH_h5/SS18-19871_34000_40000", "Classification/PATCH_h5/SS18-19871_34000_60000",
+    "Classification/PATCH_h5/SS18-19871_54000_10000", "Classification/PATCH_h5/SS18-19871_54000_30000", "Classification/PATCH_h5/SS18-19871_14000_50000",
+    "Classification/PATCH_h5/SS18-19871_74000_20000", "Classification/PATCH_h5/SS18-19871_74000_40000"
   ]
   
 }

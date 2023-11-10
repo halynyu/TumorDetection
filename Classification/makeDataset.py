@@ -5,72 +5,86 @@ from torch.utils.data import ConcatDataset
 import torch.distributed as dist
 import random
 
-RED_THRESHOLD = 250
-
 os.chdir('..')
 
 # DATA PATH
 
 # LUAC
-positive_train_LUAC_file_path = f"DatasetTxtFile/positive_train_LUAC_{RED_THRESHOLD}.txt"
-negative_train_LUAC_file_path = f"DatasetTxtFile/negative_train_LUAC_{RED_THRESHOLD}.txt"
+positive_train_LUAC_file_path = f"DatasetTxtFile/positive_train_LUAC_231108.txt"
+negative_train_LUAC_file_path = f"DatasetTxtFile/negative_train_LUAC_231108.txt"
 
 pos_train_LUAC_data_path = []
 neg_train_LUAC_data_path = []
 
-positive_test_LUAC_file_path = f"DatasetTxtFile/positive_test_LUAC_{RED_THRESHOLD}.txt"
-negative_test_LUAC_file_path = f"DatasetTxtFile/negative_test_LUAC_{RED_THRESHOLD}.txt"
+positive_test_LUAC_file_path = f"DatasetTxtFile/positive_test_LUAC_231108.txt"
+negative_test_LUAC_file_path = f"DatasetTxtFile/negative_test_LUAC_231108.txt"
 
 pos_test_LUAC_data_path = []
 neg_test_LUAC_data_path = []
 
-positive_validation_LUAC_file_path = f"DatasetTxtFile/positive_validation_LUAC_{RED_THRESHOLD}.txt"
-negative_validation_LUAC_file_path = f"DatasetTxtFile/negative_validation_LUAC_{RED_THRESHOLD}.txt"
+positive_validation_LUAC_file_path = f"DatasetTxtFile/positive_validation_LUAC_231108.txt"
+negative_validation_LUAC_file_path = f"DatasetTxtFile/negative_validation_LUAC_231108.txt"
 
 pos_valid_LUAC_data_path = []
 neg_valid_LUAC_data_path = []
 
 # TCGA
-positive_train_TCGA_file_path = f"DatasetTxtFile/positive_train_TCGA_{RED_THRESHOLD}.txt"
-negative_train_TCGA_file_path = f"DatasetTxtFile/negative_train_TCGA_{RED_THRESHOLD}.txt"
+positive_train_TCGA_file_path = f"DatasetTxtFile/positive_train_TCGA_231108.txt"
+negative_train_TCGA_file_path = f"DatasetTxtFile/negative_train_TCGA_231108.txt"
 
 pos_train_TCGA_data_path = []
 neg_train_TCGA_data_path = []
 
-positive_test_TCGA_file_path = f"DatasetTxtFile/positive_test_TCGA_{RED_THRESHOLD}.txt"
-negative_test_TCGA_file_path = f"DatasetTxtFile/negative_test_TCGA_{RED_THRESHOLD}.txt"
+positive_test_TCGA_file_path = f"DatasetTxtFile/positive_test_TCGA_231108.txt"
+negative_test_TCGA_file_path = f"DatasetTxtFile/negative_test_TCGA_231108.txt"
 
 pos_test_TCGA_data_path = []
 neg_test_TCGA_data_path = []
 
-positive_validation_TCGA_file_path = f"DatasetTxtFile/positive_validation_TCGA_{RED_THRESHOLD}.txt"
-negative_validation_TCGA_file_path = f"DatasetTxtFile/negative_validation_TCGA_{RED_THRESHOLD}.txt"
+positive_validation_TCGA_file_path = f"DatasetTxtFile/positive_validation_TCGA_231108.txt"
+negative_validation_TCGA_file_path = f"DatasetTxtFile/negative_validation_TCGA_231108.txt"
 
 pos_valid_TCGA_data_path = []
 neg_valid_TCGA_data_path = []
 
 # YS
-positive_train_YS_file_path = f"DatasetTxtFile/positive_train_YS_{RED_THRESHOLD}.txt"
-negative_train_YS_file_path = f"DatasetTxtFile/negative_train_YS_{RED_THRESHOLD}.txt"
+positive_train_YS_file_path = f"DatasetTxtFile/positive_train_YS_231108.txt"
+negative_train_YS_file_path = f"DatasetTxtFile/negative_train_YS_231108.txt"
 
 pos_train_YS_data_path = []
 neg_train_YS_data_path = []
 
-positive_test_YS_file_path = f"DatasetTxtFile/positive_test_YS_{RED_THRESHOLD}.txt"
-negative_test_YS_file_path = f"DatasetTxtFile/negative_test_YS_{RED_THRESHOLD}.txt"
+positive_test_YS_file_path = f"DatasetTxtFile/positive_test_YS_231108.txt"
+negative_test_YS_file_path = f"DatasetTxtFile/negative_test_YS_231108.txt"
 
 pos_test_YS_data_path = []
 neg_test_YS_data_path = []
 
-positive_validation_YS_file_path = f"DatasetTxtFile/positive_validation_YS_{RED_THRESHOLD}.txt"
-negative_validation_YS_file_path = f"DatasetTxtFile/negative_validation_YS_{RED_THRESHOLD}.txt"
+positive_validation_YS_file_path = f"DatasetTxtFile/positive_validation_YS_231108.txt"
+negative_validation_YS_file_path = f"DatasetTxtFile/negative_validation_YS_231108.txt"
 
 pos_valid_YS_data_path = []
 neg_valid_YS_data_path = []
 
 
 # SSSF
+positive_train_SSSF_file_path = f"DatasetTxtFile/positive_train_SSSF_231108.txt"
+negative_train_SSSF_file_path = f"DatasetTxtFile/negative_train_SSSF_231108.txt"
 
+pos_train_SSSF_data_path = []
+neg_train_SSSF_data_path = []
+
+positive_test_SSSF_file_path = f"DatasetTxtFile/positive_test_SSSF_231108.txt"
+negative_test_SSSF_file_path = f"DatasetTxtFile/negative_test_SSSF_231108.txt"
+
+pos_test_SSSF_data_path = []
+neg_test_SSSF_data_path = []
+
+positive_validation_SSSF_file_path = f"DatasetTxtFile/positive_validation_SSSF_231108.txt"
+negative_validation_SSSF_file_path = f"DatasetTxtFile/negative_validation_SSSF_231108.txt"
+
+pos_valid_SSSF_data_path = []
+neg_valid_SSSF_data_path = []
 
 
 
@@ -174,6 +188,35 @@ with open(negative_validation_YS_file_path, 'r') as f:
         neg_valid_YS_data_path.append(line)
 
 # SSSF
+with open(positive_train_SSSF_file_path, 'r') as f:
+    for line in f:
+        line = line.strip()
+        pos_train_SSSF_data_path.append(line)
+
+with open(negative_train_SSSF_file_path, 'r') as f:
+    for line in f :
+        line = line.strip()
+        neg_train_SSSF_data_path.append(line)
+
+with open(positive_test_SSSF_file_path, 'r') as f:
+    for line in f :
+        line = line.strip()
+        pos_test_SSSF_data_path.append(line)
+
+with open(negative_test_SSSF_file_path, 'r') as f:
+    for line in f :
+        line = line.strip()
+        neg_test_SSSF_data_path.append(line)
+
+with open(positive_validation_SSSF_file_path, 'r') as f:
+    for line in f :
+        line = line.strip()
+        pos_valid_SSSF_data_path.append(line)
+
+with open(negative_validation_SSSF_file_path, 'r') as f:
+    for line in f :
+        line = line.strip()
+        neg_valid_SSSF_data_path.append(line)
 
 
 
@@ -222,6 +265,9 @@ data_info(pos_train_TCGA_data_path, neg_train_TCGA_data_path, pos_test_TCGA_data
 print("\n")
 print("YS Data Distribution")
 data_info(pos_train_YS_data_path, neg_train_YS_data_path, pos_test_YS_data_path, neg_test_YS_data_path, pos_valid_YS_data_path, neg_valid_YS_data_path)
+print("\n")
+print("SSSF Data Distribution")
+data_info(pos_train_SSSF_data_path, neg_train_SSSF_data_path, pos_test_SSSF_data_path, neg_test_SSSF_data_path, pos_valid_SSSF_data_path, neg_valid_SSSF_data_path)
 
 
 # Concat Dataset
@@ -275,7 +321,25 @@ YSNegValidDataset = TumorDataset(neg_valid_YS_data_path, 0, transform)
 YS_concat_Valid_Dataset = ConcatDataset([YSPosValidDataset, YSNegValidDataset])
 
 # SSSF
+SSSFPosTrainDataset = TumorDataset(pos_train_SSSF_data_path, 1,transform)
+SSSFNegTrainDataset = TumorDataset(neg_train_SSSF_data_path, 0,transform)
 
+SSSF_concat_Dataset = ConcatDataset([SSSFPosTrainDataset, SSSFNegTrainDataset])
+
+SSSFPosTestDataset = TumorDataset(pos_test_SSSF_data_path, 1,transform)
+SSSFNegTestDataset = TumorDataset(neg_test_SSSF_data_path, 0,transform)
+
+SSSF_concat_Test_Dataset = ConcatDataset([SSSFPosTestDataset, SSSFNegTestDataset])
+
+SSSFPosValidDataset = TumorDataset(pos_valid_SSSF_data_path, 1, transform)
+SSSFNegValidDataset = TumorDataset(neg_valid_SSSF_data_path, 0, transform)
+
+SSSF_concat_Valid_Dataset = ConcatDataset([SSSFPosValidDataset, SSSFNegValidDataset])
+
+
+concat_Dataset = ConcatDataset([LUAC_concat_Dataset, SSSF_concat_Dataset])
+concat_Valid_Dataset = ConcatDataset([LUAC_concat_Valid_Dataset, SSSF_concat_Valid_Dataset])
+concat_Test_Dataset = ConcatDataset([LUAC_concat_Test_Dataset, SSSF_concat_Test_Dataset, TCGA_concat_Test_Dataset, YS_concat_Test_Dataset])
 
 
 

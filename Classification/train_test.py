@@ -57,12 +57,13 @@ def train(model, dataloader, valid_dataloader, criterion, optimizer, epochs, sav
         end_time = time.time()
         print(f" EPOCH : {epoch + 1} / {epochs} | Validation Loss per Epoch : {valid_loss / len(valid_dataloader)} | Training Time per epoch : {end_time - start_time}s ",end='\n')
 
+def eval(model, dataloader, criterion, device, batch_size, image_save, dataset):
 
-def eval(model, dataloader, criterion, device, batch_size, image_save=False):
+    len_dataset = len(dataset)
+
     model.to(device)
     model.eval()
     criterion.to(device)
-
 
     min_loss = 1e9
     min_loss_image = None
@@ -71,50 +72,46 @@ def eval(model, dataloader, criterion, device, batch_size, image_save=False):
     batch_count = 0
     total = 0
 
-    save_path = 'evaluation_image/1/'
-    if image_save :
+    save_path = 'evaluation_image/20231109/'
+    if image_save:
         if not os.path.exists(save_path):
             os.makedirs(save_path, exist_ok=True)
+
     num_ = 0
+
+    total_ALK_pos = 0
+    correct_ALK_pos = 0
+    total_ALK_neg = 0
+    correct_ALK_neg = 0
 
     with torch.no_grad():
         import torchvision
         import numpy as np
         from PIL import Image
-        
-        # correct_ALK_pos = 0
-        # correct_ALK_neg = 0
-        total_ALK_pos = 0
-        total_ALK_neg = 0
 
         for i, (inputs, labels) in enumerate(dataloader):
             inputs, labels = inputs.to(device), labels.to(device)
 
             outputs = model(inputs)
             loss = criterion(torch.sigmoid(outputs), torch.eye(2, device=device)[labels])
+            total += labels.size()[0]
             test_loss += loss.item()
             _, predicted = outputs.max(1)
 
-            total += labels.size()[0]
-            # print(labels.size())
-            # print(labels[0].item())
-            for j in range(batch_size):
-                if labels[j].item() == 1:  # ALK+ 클래스
-                    total_ALK_pos += 1
-                    correct_ALK_pos += (predicted == labels).sum().item()
-                else:  # ALK- 클래스
-                    total_ALK_neg += 1
-                    correct_ALK_neg += (predicted == labels).sum().item()
+            total_ALK_pos += labels.eq(1).sum().item()
+            correct_ALK_pos += predicted.eq(1).sum().item()
+
+            total_ALK_neg = total - total_ALK_pos
+            correct_ALK_neg += predicted.eq(0).sum().item()
 
             correct += predicted.eq(labels).sum().item()
-            if num_ % 10000 == 0:
-                print(f" {i}th Iteration Loss : {loss.item()}")
-            num_ += 1
-    
-    # ALK_pos_accuracy = 100. * correct_ALK_pos / total_ALK_pos
-    # ALK_neg_accuracy = 100. * correct_ALK_neg / total_ALK_neg
-    if total != 0:    
-        print(f"Total ALK+ Image : {total_ALK_pos}  |   Correct : {correct_ALK_pos} |   Wrong : {total_ALK_pos-correct_ALK_pos} |   ALK+ Accuracy : {ALK_pos_accuracy}")
-    #print("Test Loss: {:.3f} | Test Acc : {:.3f}".format(test_loss / i, 100. * correct/total), f"| Total Image, Correct : {total}, {correct}")
 
-    # print(f"Total ALK- Image : {total_ALK_neg}  |   Correct : {correct_ALK_neg} |   Wrong : {total_ALK_neg-correct_ALK_neg} |   ALK+ Accuracy : {ALK_neg_accuracy}")
+    if total_ALK_pos != 0:
+        ALK_pos_accuracy = 100. * correct_ALK_pos / total_ALK_pos
+        print(f"ALK+ accuracy: {ALK_pos_accuracy}")
+
+    if total_ALK_neg != 0:
+        ALK_neg_accuracy = 100. * correct_ALK_neg / total_ALK_neg
+        print(f"ALK- accuracy: {ALK_neg_accuracy}")
+
+    print(" Test Acc: {:.3f}".format(100. * correct / total), f"| Total Image, Correct: {total}, {correct}")

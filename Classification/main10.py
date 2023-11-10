@@ -17,7 +17,7 @@ import time
 
 from classification_model import make_ResNet
 from image_make_utils import make_HeatMap
-from train_test_tmp import train, eval
+from train_test import train, eval
 
 
 
@@ -31,7 +31,7 @@ def get_args():
                         help="ResNet18 number of Class")
     parser.add_argument("--batch_size", type=int, default=32,
                         help='Model Batch_size')
-    parser.add_argument('--model_save_path', type=str, default=f'Model_save/2023_10_1_6',
+    parser.add_argument('--model_save_path', type=str, default=f'Model_save/20231109_model6',
                         help="Where to Save model ")
     parser.add_argument('--pretrained', type=bool,  default=False,
                         help="Using Pretrained or not")
@@ -67,7 +67,7 @@ if __name__ == '__main__':
 
     # DataLoader
 
-    # Train용 전체 dataset 들어간 DataLoader
+    # # Train용 전체 dataset 들어간 DataLoader
     # train_Dataloader = DataLoader(concat_Dataset, batch_size = args.batch_size, shuffle =shuffle,
     #                         pin_memory = pin_memory)
 
@@ -75,6 +75,7 @@ if __name__ == '__main__':
     #                         pin_memory = pin_memory)
     # test_Dataloader = DataLoader(concat_Test_Dataset, batch_size = args.batch_size, shuffle = shuffle,
     #                         pin_memory = pin_memory)
+
 
 
     # Test용
@@ -102,13 +103,18 @@ if __name__ == '__main__':
     TCGA_test_Dataloader = DataLoader(TCGA_concat_Test_Dataset, batch_size = args.batch_size, shuffle = shuffle,
                             pin_memory = pin_memory)
 
-    criterion_weight = [[5,1]]
+    # SSSF
+    SSSF_train_Dataloader = DataLoader(SSSF_concat_Dataset, batch_size = args.batch_size, shuffle=shuffle,
+                                pin_memory = pin_memory)
+    SSSF_valid_Dataloader = DataLoader(SSSF_concat_Valid_Dataset, batch_size = args.batch_size, shuffle = shuffle,
+                            pin_memory = pin_memory)
+    SSSF_test_Dataloader = DataLoader(SSSF_concat_Test_Dataset, batch_size = args.batch_size, shuffle = shuffle,
+                            pin_memory = pin_memory)
+
+    criterion_weight = [[1.8,1]]
 
     for weights in criterion_weight:
 
-        # Model을 여기서 다시 초기화 해줘야할듯?
-        # 1. 첫번째 가능성 ->예를들어, weight 1.5 :1 로했을 때 훈련시킨 모델에 대해서 바로 1.6:1 로 이어서 훈련하는 문제 때문인>거일수도..
-        # 2. 각 훈련당 20 Iteration에서 Loss가 급격하게 변화가 생김 -> Weight가 중첩된듯
         if not os.path.exists(args.model_save_path):
             os.makedirs(args.model_save_path, exist_ok=True)
         pos, neg = weights
@@ -120,13 +126,19 @@ if __name__ == '__main__':
         # print("Complete !!")
 
     if args.pretrained :
-        checkpoint = torch.load(f'/home/lab/Tumor_Detection/Model_save/2023_10_1_6/5_1/epoch_0_all.tar')
+        checkpoint = torch.load(f'/home/lab/Tumor_Detection/Model_save/20231109_model6/1.8_1/epoch_19_all.tar')
         model.load_state_dict(checkpoint['model'])
         optimizer.load_state_dict(checkpoint['optimizer'])
 
 
-    # eval(model, LUAC_test_Dataloader, criterion, device=device, image_save=False)
-    # eval(model, TCGA_test_Dataloader, criterion, device=device, image_save=False)
-    # eval(model, YS_test_Dataloader, criterion, device=device, image_save=False)
+    print("LUAC accuracy")
+    eval(model, LUAC_test_Dataloader, criterion, device=device, batch_size=args.batch_size, image_save=False, dataset=LUAC_concat_Test_Dataset)
+    print("TCGA accuracy")
+    eval(model, TCGA_test_Dataloader, criterion, device=device, batch_size=args.batch_size, image_save=False, dataset=TCGA_concat_Test_Dataset)
+    print("YS accuracy")
+    eval(model, YS_test_Dataloader, criterion, device=device, batch_size=args.batch_size, image_save=False, dataset=YS_concat_Test_Dataset)
+    print("SSSF accuracy")
+    eval(model, SSSF_test_Dataloader, criterion, device=device, batch_size=args.batch_size, image_save=False, dataset=SSSF_concat_Test_Dataset)
 
-    make_HeatMap(model, device)
+
+    # make_HeatMap(model, device)
