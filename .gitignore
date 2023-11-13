@@ -25,21 +25,19 @@ heatmap/*
 
 tumorAnnotation.json
 tumorAnnoataion_tmp.json
-Classification/DATASET/*
-Classification/20231030_tmp.py
-Classification/main_3.py
-Classification/makepatch_tmp.py
-Classification/JPEG_FOLDER/
-Classification/cropped_png
-Classification/main_1_6.py
-Classification/patch_tmp.py
-Classification/train_test_tmp.py
-Classification/cuda.py
-Classification/makeHeatmap_tmp.py
-Classification/tmp.py
-Classification/main10.py
+classification/DATASET/*
+classification/20231030_tmp.py
+classification/makepatch_tmp.py
+classification/JPEG_FOLDER/
+classification/cropped_png
+classification/patch_tmp.py
+classification/train_test_tmp.py
+classification/cuda.py
+classification/makeHeatmap_tmp.py
+classification/tmp.py
+classification/main10.py
 
-Classification/PATCH_*/
+classification/PATCH_*/
 
 CLAM/heatmaps/demo/slides/*
 CLAM/heatmaps/heatmap_raw_results/HEATMAP_OUTPUT/ POS/*
