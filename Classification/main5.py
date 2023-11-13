@@ -10,7 +10,7 @@ import torchvision
 import argparse
 import os
 # Making Datasets in different Folder
-from makeDataset import *
+from make_dataset import *
 
 from tqdm import tqdm
 import time
@@ -67,51 +67,51 @@ if __name__ == '__main__':
 
     # DataLoader
 
-    # # Train용 전체 dataset 들어간 DataLoader
-    # train_Dataloader = DataLoader(concat_Dataset, batch_size = args.batch_size, shuffle =shuffle,
-    #                         pin_memory = pin_memory)
+    # Train용 전체 dataset 들어간 DataLoader
+    train_Dataloader = DataLoader(concat_Dataset, batch_size = args.batch_size, shuffle =shuffle,
+                            pin_memory = pin_memory)
 
-    # valid_Dataloader = DataLoader(concat_Valid_Dataset, batch_size = args.batch_size, shuffle = shuffle,
-    #                         pin_memory = pin_memory)
-    # test_Dataloader = DataLoader(concat_Test_Dataset, batch_size = args.batch_size, shuffle = shuffle,
-    #                         pin_memory = pin_memory)
+    valid_Dataloader = DataLoader(concat_Valid_Dataset, batch_size = args.batch_size, shuffle = shuffle,
+                            pin_memory = pin_memory)
+    test_Dataloader = DataLoader(concat_Test_Dataset, batch_size = args.batch_size, shuffle = shuffle,
+                            pin_memory = pin_memory)
 
 
 
     # Test용
-    # LUAC
-    LUAC_train_Dataloader = DataLoader(LUAC_concat_Dataset, batch_size = args.batch_size, shuffle=shuffle,
-                                pin_memory = pin_memory)
-    LUAC_valid_Dataloader = DataLoader(LUAC_concat_Valid_Dataset, batch_size = args.batch_size, shuffle = shuffle,
-                            pin_memory = pin_memory)
-    LUAC_test_Dataloader = DataLoader(LUAC_concat_Test_Dataset, batch_size = args.batch_size, shuffle = shuffle,
-                            pin_memory = pin_memory)
+    # # LUAC
+    # LUAC_train_Dataloader = DataLoader(LUAC_concat_Dataset, batch_size = args.batch_size, shuffle=shuffle,
+    #                             pin_memory = pin_memory)
+    # LUAC_valid_Dataloader = DataLoader(LUAC_concat_Valid_Dataset, batch_size = args.batch_size, shuffle = shuffle,
+    #                         pin_memory = pin_memory)
+    # LUAC_test_Dataloader = DataLoader(LUAC_concat_Test_Dataset, batch_size = args.batch_size, shuffle = shuffle,
+    #                         pin_memory = pin_memory)
 
-    # # YS
-    YS_train_Dataloader = DataLoader(YS_concat_Dataset, batch_size = args.batch_size, shuffle=shuffle,
-                                pin_memory = pin_memory)
-    YS_valid_Dataloader = DataLoader(YS_concat_Valid_Dataset, batch_size = args.batch_size, shuffle = shuffle,
-                            pin_memory = pin_memory)
-    YS_test_Dataloader = DataLoader(YS_concat_Test_Dataset, batch_size = args.batch_size, shuffle = shuffle,
-                            pin_memory = pin_memory)
+    # # # YS
+    # YS_train_Dataloader = DataLoader(YS_concat_Dataset, batch_size = args.batch_size, shuffle=shuffle,
+    #                             pin_memory = pin_memory)
+    # YS_valid_Dataloader = DataLoader(YS_concat_Valid_Dataset, batch_size = args.batch_size, shuffle = shuffle,
+    #                         pin_memory = pin_memory)
+    # YS_test_Dataloader = DataLoader(YS_concat_Test_Dataset, batch_size = args.batch_size, shuffle = shuffle,
+    #                         pin_memory = pin_memory)
 
-    # TCGA
-    TCGA_train_Dataloader = DataLoader(TCGA_concat_Dataset, batch_size = args.batch_size, shuffle=shuffle,
-                                pin_memory = pin_memory)
-    TCGA_valid_Dataloader = DataLoader(TCGA_concat_Valid_Dataset, batch_size = args.batch_size, shuffle = shuffle,
-                            pin_memory = pin_memory)
-    TCGA_test_Dataloader = DataLoader(TCGA_concat_Test_Dataset, batch_size = args.batch_size, shuffle = shuffle,
-                            pin_memory = pin_memory)
+    # # TCGA
+    # TCGA_train_Dataloader = DataLoader(TCGA_concat_Dataset, batch_size = args.batch_size, shuffle=shuffle,
+    #                             pin_memory = pin_memory)
+    # TCGA_valid_Dataloader = DataLoader(TCGA_concat_Valid_Dataset, batch_size = args.batch_size, shuffle = shuffle,
+    #                         pin_memory = pin_memory)
+    # TCGA_test_Dataloader = DataLoader(TCGA_concat_Test_Dataset, batch_size = args.batch_size, shuffle = shuffle,
+    #                         pin_memory = pin_memory)
 
-    # SSSF
-    SSSF_train_Dataloader = DataLoader(SSSF_concat_Dataset, batch_size = args.batch_size, shuffle=shuffle,
-                                pin_memory = pin_memory)
-    SSSF_valid_Dataloader = DataLoader(SSSF_concat_Valid_Dataset, batch_size = args.batch_size, shuffle = shuffle,
-                            pin_memory = pin_memory)
-    SSSF_test_Dataloader = DataLoader(SSSF_concat_Test_Dataset, batch_size = args.batch_size, shuffle = shuffle,
-                            pin_memory = pin_memory)
+    # # SSSF
+    # SSSF_train_Dataloader = DataLoader(SSSF_concat_Dataset, batch_size = args.batch_size, shuffle=shuffle,
+    #                             pin_memory = pin_memory)
+    # SSSF_valid_Dataloader = DataLoader(SSSF_concat_Valid_Dataset, batch_size = args.batch_size, shuffle = shuffle,
+    #                         pin_memory = pin_memory)
+    # SSSF_test_Dataloader = DataLoader(SSSF_concat_Test_Dataset, batch_size = args.batch_size, shuffle = shuffle,
+    #                         pin_memory = pin_memory)
 
-    criterion_weight = [[3.7,1]]
+    criterion_weight = [[100,1]]
 
     for weights in criterion_weight:
 
@@ -121,24 +121,24 @@ if __name__ == '__main__':
         criterion = nn.BCEWithLogitsLoss(pos_weight=torch.tensor([pos, neg]))
         optimizer = torch.optim.SGD(model.parameters(), lr=0.001, momentum=0.9)
 
-        # train(model, train_Dataloader, valid_Dataloader, criterion, optimizer, args.epochs, args.model_save_path, device, weights)
+        train(model, train_Dataloader, valid_Dataloader, criterion, optimizer, args.epochs, args.model_save_path, device, weights)
 
-        # print("Complete !!")
+        print("Complete !!")
 
-    if args.pretrained :
-        checkpoint = torch.load(f'/home/lab/Tumor_Detection/Model_save/20231109_model5/3.7_1/epoch_19_all.tar')
-        model.load_state_dict(checkpoint['model'])
-        optimizer.load_state_dict(checkpoint['optimizer'])
+    # if args.pretrained :
+    #     checkpoint = torch.load(f'/home/lab/Tumor_Detection/Model_save/20231109_model5/100_1/epoch_8_all.tar')
+    #     model.load_state_dict(checkpoint['model'])
+    #     optimizer.load_state_dict(checkpoint['optimizer'])
 
 
-    print("LUAC accuracy")
-    eval(model, LUAC_test_Dataloader, criterion, device=device, batch_size=args.batch_size, image_save=False, dataset=LUAC_concat_Test_Dataset)
-    print("TCGA accuracy")
-    eval(model, TCGA_test_Dataloader, criterion, device=device, batch_size=args.batch_size, image_save=False, dataset=TCGA_concat_Test_Dataset)
-    print("YS accuracy")
-    eval(model, YS_test_Dataloader, criterion, device=device, batch_size=args.batch_size, image_save=False, dataset=YS_concat_Test_Dataset)
-    print("SSSF accuracy")
-    eval(model, SSSF_test_Dataloader, criterion, device=device, batch_size=args.batch_size, image_save=False, dataset=SSSF_concat_Test_Dataset)
+    # print("LUAC accuracy")
+    # eval(model, LUAC_test_Dataloader, criterion, device=device, batch_size=args.batch_size, image_save=False, dataset=LUAC_concat_Test_Dataset)
+    # print("TCGA accuracy")
+    # eval(model, TCGA_test_Dataloader, criterion, device=device, batch_size=args.batch_size, image_save=False, dataset=TCGA_concat_Test_Dataset)
+    # print("YS accuracy")
+    # eval(model, YS_test_Dataloader, criterion, device=device, batch_size=args.batch_size, image_save=False, dataset=YS_concat_Test_Dataset)
+    # print("SSSF accuracy")
+    # eval(model, SSSF_test_Dataloader, criterion, device=device, batch_size=args.batch_size, image_save=False, dataset=SSSF_concat_Test_Dataset)
 
 
     # make_HeatMap(model, device)

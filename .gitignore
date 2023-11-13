@@ -6,19 +6,30 @@ __pycache__
 *.html
 *.so
 *.pyd
+*.jpg
+*.png
+*.svs
+*.h5
+*.pkl
+*.csv
 PATCH_20230914/
 Model_save/*
 ImageTxtFile/*
 DatasetTxtFile/
+
 heatmap/*
-CLAM/
+!heatmap/LUAC_1-1_A2_heatmap.jpg
+!heatmap/SS17-77649_45000_40000_heatmap.jpg
+!heatmap/TCGA-86-A4P8-01Z-00-DX1--a_heatmap.jpg
+!heatmap/YS12-1606_0_23000_heatmap.jpg
+
 tumorAnnotation.json
 tumorAnnoataion_tmp.json
 Classification/DATASET/*
 Classification/20231030_tmp.py
 Classification/main_3.py
 Classification/makepatch_tmp.py
-Classification/JPEG_FOLDER/*
+Classification/JPEG_FOLDER/
 Classification/cropped_png
 Classification/main_1_6.py
 Classification/patch_tmp.py
@@ -27,4 +38,7 @@ Classification/cuda.py
 Classification/makeHeatmap_tmp.py
 Classification/tmp.py
 
-Classification/PATCH_*/*
+Classification/PATCH_*/
+
+CLAM/heatmaps/demo/slides/*
+CLAM/heatmaps/heatmap_raw_results/HEATMAP_OUTPUT/ POS/*

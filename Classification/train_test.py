@@ -44,10 +44,23 @@ def train(model, dataloader, valid_dataloader, criterion, optimizer, epochs, sav
 
         # Validation
         model.eval()
+        correct_predictions = 0
+        total_samples = 0
+
         with torch.no_grad():
-            valid_loss = sum(criterion(torch.sigmoid(model(x.to(device))), torch.eye(2, device=device)[y.to(device)]).item() for x, y in valid_dataloader)
-            if BEST_LOSS > valid_loss:
-                BEST_LOSS = valid_loss
+            for inputs, labels in valid_dataloader:
+                inputs, labels = inputs.to(device), labels.to(device)
+                outputs = model(inputs)
+                predicted_labels = torch.argmax(torch.sigmoid(outputs), dim=1)
+
+                correct_predictions += (predicted_labels == labels).sum().item()
+                total_samples += len(labels)
+
+            validation_accuracy = correct_predictions / total_samples
+            validation_loss = sum(criterion(torch.sigmoid(model(x.to(device))), torch.eye(2, device=device)[y.to(device)]).item() for x, y in valid_dataloader)
+
+            if BEST_LOSS > validation_loss:
+                BEST_LOSS = validation_loss
                 torch.save({
                     'model': model.state_dict(),
                     'optimizer': optimizer.state_dict()
@@ -55,7 +68,7 @@ def train(model, dataloader, valid_dataloader, criterion, optimizer, epochs, sav
 
 
         end_time = time.time()
-        print(f" EPOCH : {epoch + 1} / {epochs} | Validation Loss per Epoch : {valid_loss / len(valid_dataloader)} | Training Time per epoch : {end_time - start_time}s ",end='\n')
+        print(f" EPOCH : {epoch + 1} / {epochs} | Validation Loss per Epoch : {validation_loss / len(valid_dataloader)} | Validation Accuracy: {validation_accuracy * 100:.2f}% | Training Time per epoch : {end_time - start_time}s ",end='\n')
 
 def eval(model, dataloader, criterion, device, batch_size, image_save, dataset):
 
