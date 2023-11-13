@@ -37,6 +37,7 @@ Classification/train_test_tmp.py
 Classification/cuda.py
 Classification/makeHeatmap_tmp.py
 Classification/tmp.py
+Classification/main10.py
 
 Classification/PATCH_*/
 
