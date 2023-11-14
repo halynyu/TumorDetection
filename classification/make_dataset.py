@@ -331,8 +331,8 @@ SSSFNegValidDataset = TumorDataset(neg_valid_SSSF_data_path, 0, transform)
 SSSF_concat_Valid_Dataset = ConcatDataset([SSSFPosValidDataset, SSSFNegValidDataset])
 
 
-concat_Dataset = ConcatDataset([LUAC_concat_Dataset, SSSF_concat_Dataset])
-concat_Valid_Dataset = ConcatDataset([LUAC_concat_Valid_Dataset, SSSF_concat_Valid_Dataset])
+concat_Dataset = ConcatDataset([LUAC_concat_Dataset, SSSF_concat_Dataset, TCGA_concat_Dataset, YS_concat_Dataset])
+concat_Valid_Dataset = ConcatDataset([LUAC_concat_Valid_Dataset, SSSF_concat_Valid_Dataset, TCGA_concat_Valid_Dataset, YS_concat_Valid_Dataset])
 concat_Test_Dataset = ConcatDataset([LUAC_concat_Test_Dataset, SSSF_concat_Test_Dataset, TCGA_concat_Test_Dataset, YS_concat_Test_Dataset])
 
 

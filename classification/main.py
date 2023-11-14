@@ -31,7 +31,7 @@ def get_args():
                         help="ResNet18 number of Class")
     parser.add_argument("--batch_size", type=int, default=32,
                         help='Model Batch_size')
-    parser.add_argument('--model_save_path', type=str, default=f'Model_save/20231109_model5',
+    parser.add_argument('--model_save_path', type=str, default=f'Model_save/20231109_model1',
                         help="Where to Save model ")
     parser.add_argument('--pretrained', type=bool,  default=False,
                         help="Using Pretrained or not")
@@ -111,7 +111,7 @@ if __name__ == '__main__':
     # SSSF_test_Dataloader = DataLoader(SSSF_concat_Test_Dataset, batch_size = args.batch_size, shuffle = shuffle,
     #                         pin_memory = pin_memory)
 
-    criterion_weight = [[100,1]]
+    criterion_weight = [[1,1/3.7]]
 
     for weights in criterion_weight:
 
