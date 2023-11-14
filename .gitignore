@@ -35,7 +35,7 @@ classification/tmp.py
 classification/main10.py
 
 classification/PATCH_*/
-!Classification/PATCH_h5
+!Classification/PATCH_h5/*
 
 
 CLAM/heatmaps/demo/slides/*
