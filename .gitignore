@@ -22,7 +22,7 @@ heatmap/*
 !heatmap/TCGA-86-A4P8-01Z-00-DX1--a_heatmap.jpg
 !heatmap/YS12-1606_0_23000_heatmap.jpg
 
-classification/DATASET/*
+classification/DATASET/
 classification/20231030_tmp.py
 classification/makepatch_tmp.py
 classification/JPEG_FOLDER/
@@ -35,7 +35,13 @@ classification/tmp.py
 classification/main10.py
 
 classification/PATCH_*/
-!Classification/PATCH_h5/*
+
+image_txt_file/
+dataset_txt_file/
+Model_save/
+tumorAnnotation.json
+classification/PATCH_h5/
+
 
 
 CLAM/heatmaps/demo/slides/*
