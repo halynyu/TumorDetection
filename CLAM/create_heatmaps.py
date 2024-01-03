@@ -23,6 +23,8 @@ from vis_utils.heatmap_utils import initialize_wsi, drawHeatmap, compute_from_pa
 from wsi_core.wsi_utils import sample_rois
 from utils.file_utils import save_hdf5
 
+import csv
+
 parser = argparse.ArgumentParser(description='Heatmap inference script')
 parser.add_argument('--save_exp_code', type=str, default=None,
 					help='experiment code')
@@ -30,7 +32,9 @@ parser.add_argument('--overlap', type=float, default=None)
 parser.add_argument('--config_file', type=str, default="heatmap_config_template.yaml")
 args = parser.parse_args()
 
+
 def infer_single_slide(model, features, label, reverse_label_dict, k=1):
+	csv_path = "./patch_score.csv"	
 	features = features.to(device)
 	with torch.no_grad():
 		if isinstance(model, (CLAM_SB, CLAM_MB)):
@@ -45,13 +49,16 @@ def infer_single_slide(model, features, label, reverse_label_dict, k=1):
 
 		else:
 			raise NotImplementedError
+		print(len(A))
 
 		print('Y_hat: {}, Y: {}, Y_prob: {}'.format(reverse_label_dict[Y_hat], label, ["{:.4f}".format(p) for p in Y_prob.cpu().flatten()]))	
-		
+
+
 		probs, ids = torch.topk(Y_prob, k)
 		probs = probs[-1].cpu().numpy()
 		ids = ids[-1].cpu().numpy()
 		preds_str = np.array([reverse_label_dict[idx] for idx in ids])
+
 
 	return ids, preds_str, probs, A
 
@@ -333,19 +340,32 @@ if __name__ == '__main__':
 		coords = coord_dset[:]
 		file.close()
 
+		# CSV 파일 경로
+		csv_file_path = f"/home/lab/Tumor_Detection/CLAM/heatmaps/heatmap_raw_results/HEATMAP_OUTPUT/ POS/{slide_id}/{slide_id}_all_patches_scores.csv"
+
 		samples = sample_args.samples
-		for sample in samples:
-			if sample['sample']:
-				tag = "label_{}_pred_{}".format(label, Y_hats[0])
-				sample_save_dir =  os.path.join(exp_args.production_save_dir, exp_args.save_exp_code, 'sampled_patches', str(tag), sample['name'])
-				os.makedirs(sample_save_dir, exist_ok=True)
-				print('sampling {}'.format(sample['name']))
-				sample_results = sample_rois(scores, coords, k=sample['k'], mode=sample['mode'], seed=sample['seed'], 
-					score_start=sample.get('score_start', 0), score_end=sample.get('score_end', 1))
-				for idx, (s_coord, s_score) in enumerate(zip(sample_results['sampled_coords'], sample_results['sampled_scores'])):
-					print('coord: {} score: {:.3f}'.format(s_coord, s_score))
-					patch = wsi_object.wsi.read_region(tuple(s_coord), patch_args.patch_level, (patch_args.patch_size, patch_args.patch_size)).convert('RGB')
-					patch.save(os.path.join(sample_save_dir, '{}_{}_x_{}_y_{}_a_{:.3f}.png'.format(idx, slide_id, s_coord[0], s_coord[1], s_score)))
+		with open(csv_file_path, "w", newline="") as csvfile:
+			csv_writer = csv.writer(csvfile)
+			csv_writer.writerow(["coord_x", "coord_y", "score"])
+
+			for sample in samples:
+				if sample['sample']:
+					tag = "label_{}_pred_{}".format(label, Y_hats[0])
+					sample_save_dir = os.path.join(exp_args.production_save_dir, exp_args.save_exp_code, 'sampled_patches', str(tag), sample['name'])
+					os.makedirs(sample_save_dir, exist_ok=True)
+					print('sampling {}'.format(sample['name']))
+					sample_results = sample_rois(scores, coords, k=len(scores), mode=sample['mode'], seed=sample['seed'], 
+						score_start=sample.get('score_start', 0), score_end=sample.get('score_end', 1))
+
+					for idx, (s_coord, s_score) in enumerate(zip(sample_results['sampled_coords'], sample_results['sampled_scores'])):
+						# print('coord: {} score: {:.3f}'.format(s_coord, s_score))
+						patch = wsi_object.wsi.read_region(tuple(s_coord), patch_args.patch_level, (patch_args.patch_size, patch_args.patch_size)).convert('RGB')
+						# patch.save(os.path.join(sample_save_dir, '{}_{}_x_{}_y_{}_a_{:.3f}.png'.format(idx, slide_id, s_coord[0], s_coord[1], s_score)))
+						
+						# CSV 파일에 x, y 좌표 및 score 저장
+						csv_writer.writerow([s_coord[0], s_coord[1], s_score])
+
+		print("All patches scores and images saved to:", csv_file_path)
 
 		wsi_kwargs = {'top_left': top_left, 'bot_right': bot_right, 'patch_size': patch_size, 'step_size': step_size, 
 		'custom_downsample':patch_args.custom_downsample, 'level': patch_args.patch_level, 'use_center_shift': heatmap_args.use_center_shift}
@@ -431,5 +451,3 @@ if __name__ == '__main__':
 
 	with open(os.path.join(exp_args.raw_save_dir, exp_args.save_exp_code, 'config.yaml'), 'w') as outfile:
 		yaml.dump(config_dict, outfile, default_flow_style=False)
-
-

@@ -16,7 +16,10 @@ PATCH_20230914/
 Model_save/*
 
 
-heatmap/*
+heatmap_70/*
+heatmap_80
+patch_score_70/*
+patch_score_80
 !heatmap/LUAC_1-1_A2_heatmap.jpg
 !heatmap/SS17-77649_45000_40000_heatmap.jpg
 !heatmap/TCGA-86-A4P8-01Z-00-DX1--a_heatmap.jpg
@@ -46,3 +49,8 @@ classification/PATCH_h5/
 
 CLAM/heatmaps/demo/slides/*
 CLAM/heatmaps/heatmap_raw_results/HEATMAP_OUTPUT/ POS/*
+
+read_h5.py
+tumorAnnotation.json
+classification/main.py
+classification/image_make_utils_tmp.py

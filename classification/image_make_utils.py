@@ -34,7 +34,7 @@ def make_HeatMap(model, device):
         if k == 'NEGATIVE_TEST_LUAC':
             TEST_PATH.extend(v)
 
-    # print(f"test path : {TEST_PATH}")
+    # print(f"test path : {TEST_PATH}") 
 
     for path in tqdm(base_path):
         folder_name, tumor_name = path.split('/')[0:1], path.split('/')[2]

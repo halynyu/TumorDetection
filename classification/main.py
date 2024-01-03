@@ -17,7 +17,7 @@ import time
 
 from classification_model import make_ResNet
 from image_make_utils import make_HeatMap
-from train_test import train, eval
+from train_test import train
 
 
 
@@ -31,7 +31,7 @@ def get_args():
                         help="ResNet18 number of Class")
     parser.add_argument("--batch_size", type=int, default=32,
                         help='Model Batch_size')
-    parser.add_argument('--model_save_path', type=str, default=f'Model_save/20231109_model1',
+    parser.add_argument('--model_save_path', type=str, default=f'Model_save/20231122_model1',
                         help="Where to Save model ")
     parser.add_argument('--pretrained', type=bool,  default=False,
                         help="Using Pretrained or not")
@@ -57,37 +57,40 @@ if __name__ == '__main__':
 
     model = make_ResNet(args)
 
-    device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+    device = torch.device('cuda:0')
+
     print("**************** Model Architecture **********************************\n")
     print(model)
     print("********************************************************************\n\n")
 
-    model.to(device)
+    print(device)
+    model.to(device=device)
 
 
     # DataLoader
 
-    # Train용 전체 dataset 들어간 DataLoader
+    # # Train용 전체 dataset 들어간 DataLoader
     train_Dataloader = DataLoader(concat_Dataset, batch_size = args.batch_size, shuffle =shuffle,
-                            pin_memory = pin_memory)
+                           pin_memory = pin_memory)
 
     valid_Dataloader = DataLoader(concat_Valid_Dataset, batch_size = args.batch_size, shuffle = shuffle,
-                            pin_memory = pin_memory)
+                           pin_memory = pin_memory)
     test_Dataloader = DataLoader(concat_Test_Dataset, batch_size = args.batch_size, shuffle = shuffle,
-                            pin_memory = pin_memory)
+                           pin_memory = pin_memory)
 
 
 
     # Test용
     # # LUAC
-    # LUAC_train_Dataloader = DataLoader(LUAC_concat_Dataset, batch_size = args.batch_size, shuffle=shuffle,
-    #                             pin_memory = pin_memory)
-    # LUAC_valid_Dataloader = DataLoader(LUAC_concat_Valid_Dataset, batch_size = args.batch_size, shuffle = shuffle,
-    #                         pin_memory = pin_memory)
-    # LUAC_test_Dataloader = DataLoader(LUAC_concat_Test_Dataset, batch_size = args.batch_size, shuffle = shuffle,
-    #                         pin_memory = pin_memory)
+    LUAC_train_Dataloader = DataLoader(LUAC_concat_Dataset, batch_size = args.batch_size, shuffle=shuffle,
+                                pin_memory = pin_memory)
+    LUAC_valid_Dataloader = DataLoader(LUAC_concat_Valid_Dataset, batch_size = args.batch_size, shuffle = shuffle,
+                            pin_memory = pin_memory)
+    LUAC_test_Dataloader = DataLoader(LUAC_concat_Test_Dataset, batch_size = args.batch_size, shuffle = shuffle,
+                            pin_memory = pin_memory)
+    LUAC_weights = [30, 1]
 
-    # # # YS
+    # # YS
     # YS_train_Dataloader = DataLoader(YS_concat_Dataset, batch_size = args.batch_size, shuffle=shuffle,
     #                             pin_memory = pin_memory)
     # YS_valid_Dataloader = DataLoader(YS_concat_Valid_Dataset, batch_size = args.batch_size, shuffle = shuffle,
@@ -110,29 +113,36 @@ if __name__ == '__main__':
     #                         pin_memory = pin_memory)
     # SSSF_test_Dataloader = DataLoader(SSSF_concat_Test_Dataset, batch_size = args.batch_size, shuffle = shuffle,
     #                         pin_memory = pin_memory)
+    weights = [1, 1]
 
-    criterion_weight = [[1,1/3.7]]
+    if not os.path.exists(args.model_save_path):
+        os.makedirs(args.model_save_path, exist_ok=True)
 
-    for weights in criterion_weight:
+    # LUAC_pos, LUAC_neg = LUAC_weights
 
-        if not os.path.exists(args.model_save_path):
-            os.makedirs(args.model_save_path, exist_ok=True)
-        pos, neg = weights
-        criterion = nn.BCEWithLogitsLoss(pos_weight=torch.tensor([pos, neg]))
-        optimizer = torch.optim.SGD(model.parameters(), lr=0.001, momentum=0.9)
+    # criterion_([LUAC_weights]) = LUAC_criterion
+    # criterion_([weights]) = criterion
+    # LUAC_criterion = nn.BCEWithLogitsLoss(pos_weight=torch.tensor([LUAC_pos, LUAC_neg]))
+    # LUAC_optimizer = torch.optim.SGD(model.parameters(), lr=0.001, momentum=0.9)
+    # train(model, LUAC_train_Dataloader, LUAC_valid_Dataloader, LUAC_criterion, LUAC_optimizer, args.epochs, args.model_save_path, device, LUAC_weights)
 
-        train(model, train_Dataloader, valid_Dataloader, criterion, optimizer, args.epochs, args.model_save_path, device, weights)
+    pos, neg= weights
+    criterion = nn.BCEWithLogitsLoss(pos_weight=torch.tensor([pos, neg]))
+    optimizer = torch.optim.SGD(model.parameters(), lr=0.001, momentum=0.9)
+    #train(model, train_Dataloader, valid_Dataloader, criterion, optimizer, args.epochs, args.model_save_path, device, weights)
 
-        print("Complete !!")
+    train(model, LUAC_train_Dataloader, train_Dataloader, valid_Dataloader, args.epochs, args.model_save_path, device, LUAC_weights, weights)
 
-    # if args.pretrained :
-    #     checkpoint = torch.load(f'/home/lab/Tumor_Detection/Model_save/20231109_model5/100_1/epoch_8_all.tar')
-    #     model.load_state_dict(checkpoint['model'])
-    #     optimizer.load_state_dict(checkpoint['optimizer'])
+    print("Complete !!")
+
+    #if args.pretrained :
+    #    checkpoint = torch.load(f'/home/lab/Tumor_Detection/Model_save/20231120_model6/1_1/epoch_92_all.tar')
+    #    model.load_state_dict(checkpoint['model'])
+    #    LUAC_optimizer.load_state_dict(checkpoint['optimizer'])
 
 
-    # print("LUAC accuracy")
-    # eval(model, LUAC_test_Dataloader, criterion, device=device, batch_size=args.batch_size, image_save=False, dataset=LUAC_concat_Test_Dataset)
+    #print("LUAC accuracy")
+    #eval(model, LUAC_test_Dataloader, LUAC_criterion, device=device, batch_size=args.batch_size, image_save=False, dataset=LUAC_concat_Test_Dataset)
     # print("TCGA accuracy")
     # eval(model, TCGA_test_Dataloader, criterion, device=device, batch_size=args.batch_size, image_save=False, dataset=TCGA_concat_Test_Dataset)
     # print("YS accuracy")

@@ -10,78 +10,78 @@ os.chdir('..')
 # DATA PATH
 
 # LUAC
-positive_train_LUAC_file_path = f"DatasetTxtFile/positive_train_LUAC_231114.txt"
-negative_train_LUAC_file_path = f"DatasetTxtFile/negative_train_LUAC_231114.txt"
+positive_train_LUAC_file_path = f"dataset_txt_file/positive_train_LUAC_score.txt"
+negative_train_LUAC_file_path = f"dataset_txt_file/negative_train_LUAC_score.txt"
 
 pos_train_LUAC_data_path = []
 neg_train_LUAC_data_path = []
 
-positive_test_LUAC_file_path = f"DatasetTxtFile/positive_test_LUAC_231114.txt"
-negative_test_LUAC_file_path = f"DatasetTxtFile/negative_test_LUAC_231114.txt"
+positive_test_LUAC_file_path = f"dataset_txt_file/positive_test_LUAC_score.txt"
+negative_test_LUAC_file_path = f"dataset_txt_file/negative_test_LUAC_score.txt"
 
 pos_test_LUAC_data_path = []
 neg_test_LUAC_data_path = []
 
-positive_validation_LUAC_file_path = f"DatasetTxtFile/positive_validation_LUAC_231114.txt"
-negative_validation_LUAC_file_path = f"DatasetTxtFile/negative_validation_LUAC_231114.txt"
+positive_validation_LUAC_file_path = f"dataset_txt_file/positive_validation_LUAC_score.txt"
+negative_validation_LUAC_file_path = f"dataset_txt_file/negative_validation_LUAC_score.txt"
 
 pos_valid_LUAC_data_path = []
 neg_valid_LUAC_data_path = []
 
 # TCGA
-positive_train_TCGA_file_path = f"DatasetTxtFile/positive_train_TCGA_231114.txt"
-negative_train_TCGA_file_path = f"DatasetTxtFile/negative_train_TCGA_231114.txt"
+positive_train_TCGA_file_path = f"dataset_txt_file/positive_train_TCGA_score.txt"
+negative_train_TCGA_file_path = f"dataset_txt_file/negative_train_TCGA_score.txt"
 
 pos_train_TCGA_data_path = []
 neg_train_TCGA_data_path = []
 
-positive_test_TCGA_file_path = f"DatasetTxtFile/positive_test_TCGA_231114.txt"
-negative_test_TCGA_file_path = f"DatasetTxtFile/negative_test_TCGA_231114.txt"
+positive_test_TCGA_file_path = f"dataset_txt_file/positive_test_TCGA_score.txt"
+negative_test_TCGA_file_path = f"dataset_txt_file/negative_test_TCGA_score.txt"
 
 pos_test_TCGA_data_path = []
 neg_test_TCGA_data_path = []
 
-positive_validation_TCGA_file_path = f"DatasetTxtFile/positive_validation_TCGA_231114.txt"
-negative_validation_TCGA_file_path = f"DatasetTxtFile/negative_validation_TCGA_231114.txt"
+positive_validation_TCGA_file_path = f"dataset_txt_file/positive_validation_TCGA_score.txt"
+negative_validation_TCGA_file_path = f"dataset_txt_file/negative_validation_TCGA_score.txt"
 
 pos_valid_TCGA_data_path = []
 neg_valid_TCGA_data_path = []
 
 # YS
-positive_train_YS_file_path = f"DatasetTxtFile/positive_train_YS_231114.txt"
-negative_train_YS_file_path = f"DatasetTxtFile/negative_train_YS_231114.txt"
+positive_train_YS_file_path = f"dataset_txt_file/positive_train_YS_score.txt"
+negative_train_YS_file_path = f"dataset_txt_file/negative_train_YS_score.txt"
 
 pos_train_YS_data_path = []
 neg_train_YS_data_path = []
 
-positive_test_YS_file_path = f"DatasetTxtFile/positive_test_YS_231114.txt"
-negative_test_YS_file_path = f"DatasetTxtFile/negative_test_YS_231114.txt"
+positive_test_YS_file_path = f"dataset_txt_file/positive_test_YS_score.txt"
+negative_test_YS_file_path = f"dataset_txt_file/negative_test_YS_score.txt"
 
 pos_test_YS_data_path = []
 neg_test_YS_data_path = []
 
-positive_validation_YS_file_path = f"DatasetTxtFile/positive_validation_YS_231114.txt"
-negative_validation_YS_file_path = f"DatasetTxtFile/negative_validation_YS_231114.txt"
+positive_validation_YS_file_path = f"dataset_txt_file/positive_validation_YS_score.txt"
+negative_validation_YS_file_path = f"dataset_txt_file/negative_validation_YS_score.txt"
 
 pos_valid_YS_data_path = []
 neg_valid_YS_data_path = []
 
 
 # SSSF
-positive_train_SSSF_file_path = f"DatasetTxtFile/positive_train_SSSF_231114.txt"
-negative_train_SSSF_file_path = f"DatasetTxtFile/negative_train_SSSF_231114.txt"
+positive_train_SSSF_file_path = f"dataset_txt_file/positive_train_SSSF_score.txt"
+negative_train_SSSF_file_path = f"dataset_txt_file/negative_train_SSSF_score.txt"
 
 pos_train_SSSF_data_path = []
 neg_train_SSSF_data_path = []
 
-positive_test_SSSF_file_path = f"DatasetTxtFile/positive_test_SSSF_231114.txt"
-negative_test_SSSF_file_path = f"DatasetTxtFile/negative_test_SSSF_231114.txt"
+positive_test_SSSF_file_path = f"dataset_txt_file/positive_test_SSSF_score.txt"
+negative_test_SSSF_file_path = f"dataset_txt_file/negative_test_SSSF_score.txt"
 
 pos_test_SSSF_data_path = []
 neg_test_SSSF_data_path = []
 
-positive_validation_SSSF_file_path = f"DatasetTxtFile/positive_validation_SSSF_231114.txt"
-negative_validation_SSSF_file_path = f"DatasetTxtFile/negative_validation_SSSF_231114.txt"
+positive_validation_SSSF_file_path = f"dataset_txt_file/positive_validation_SSSF_score.txt"
+negative_validation_SSSF_file_path = f"dataset_txt_file/negative_validation_SSSF_score.txt"
 
 pos_valid_SSSF_data_path = []
 neg_valid_SSSF_data_path = []
@@ -228,8 +228,12 @@ def select_data(negative_list, positive_list, tau):
 
 
 # [If Necessary] Neg, Pos Dataset 불균형이 심하다면 tau값 조정하여 Neg : Pos dataset 개수 비율 맞추기
-# tau = 1
-# neg_train_data_path = select_data(neg_train_data_path, pos_train_data_path, tau)
+# tau = t1
+
+neg_train_LUAC_data_path = select_data(neg_train_LUAC_data_path, pos_train_LUAC_data_path, 2)
+neg_valid_LUAC_data_path = select_data(neg_valid_LUAC_data_path, pos_valid_LUAC_data_path, 2)
+
+# neg_rain_data_path = select_data(neg_train_data_path, pos_train_data_path, tau)
 # print(len(neg_train_data_path))
 
 # def make_dataset(pt, nt):
@@ -331,7 +335,7 @@ SSSFNegValidDataset = TumorDataset(neg_valid_SSSF_data_path, 0, transform)
 SSSF_concat_Valid_Dataset = ConcatDataset([SSSFPosValidDataset, SSSFNegValidDataset])
 
 
-concat_Dataset = ConcatDataset([LUAC_concat_Dataset, SSSF_concat_Dataset, TCGA_concat_Dataset, YS_concat_Dataset])
+concat_Dataset = ConcatDataset([SSSF_concat_Dataset, TCGA_concat_Dataset, YS_concat_Dataset])
 concat_Valid_Dataset = ConcatDataset([LUAC_concat_Valid_Dataset, SSSF_concat_Valid_Dataset, TCGA_concat_Valid_Dataset, YS_concat_Valid_Dataset])
 concat_Test_Dataset = ConcatDataset([LUAC_concat_Test_Dataset, SSSF_concat_Test_Dataset, TCGA_concat_Test_Dataset, YS_concat_Test_Dataset])
 
