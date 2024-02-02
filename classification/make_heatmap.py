@@ -9,7 +9,7 @@ import json
 import os
 import argparse
 
-from classification_model import make_ResNet
+from classification_model import *
 
 def get_args():
     parser = argparse.ArgumentParser(description="Train a neural Network")
@@ -38,13 +38,13 @@ base_path = "/home/lab/Tumor_Detection/CLAM/heatmaps/heatmap_raw_results/HEATMAP
 # svs_base_path : svs 파일이 있는 directory
 svs_base_path = "/home/lab/Tumor_Detection/CLAM/heatmaps/demo/slides/"
 
-patch_base_path = "/home/lab/Tumor_Detection/classification/PATCH_h5"
+patch_base_path = "/home/lab/Tumor_Detection/classification/224_patch_score_80"
 
-model_path = "/home/lab/Tumor_Detection/Model_save/20231205_model1/30_1/1_1/epoch_11733_all.tar"
+model_path = "/home/lab/Tumor_Detection/Model_save/20231228_model1/1_1/1_1/epoch_511_all.tar"
 checkpoint = torch.load(model_path)
 model_state_dict = checkpoint['model']
 
-model = make_ResNet(args)
+model = make_MobileNetV2(args)
 model.load_state_dict(model_state_dict)
 
 device = torch.device("cuda:0")
@@ -74,7 +74,7 @@ def heatmap(tumor_name, pos_or_neg):
                 # print(matches)
 
                 width, height = matches[0]
-                width, height = int(width), int(height)
+                width, height = int(width)/8, int(height)/8
                 # print(width, height)
 
                 patch = Image.open(os.path.join(patch_path, patch))

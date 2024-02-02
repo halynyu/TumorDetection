@@ -22,7 +22,7 @@ def patching(slide, y, x, PATCH_SIZE, tau):
 
 def make_patch(json_file, patch_size, score_threshold):
 
-    heatmap_path = f"/home/lab/Tumor_Detection/classification/heatmap_{score_threshold}"
+    heatmap_path = f"/home/lab/Tumor_Detection/classification/224_heatmap_{score_threshold}"
     if not os.path.exists(heatmap_path):
         os.makedirs(heatmap_path)
 
@@ -32,10 +32,10 @@ def make_patch(json_file, patch_size, score_threshold):
     for category, values in data.items():
         for value in tqdm(values):
             svs_name = value.split("/")[-1]
-            if not os.path.exists(f"patch_score_{score_threshold}/{svs_name}"):
-                os.makedirs(f"patch_score_{score_threshold}/{svs_name}")
+            if not os.path.exists(f"224_patch_score_{score_threshold}/{svs_name}"):
+                os.makedirs(f"224_patch_score_{score_threshold}/{svs_name}")
 
-            output_path =  f"patch_score_{score_threshold}/{svs_name}"
+            output_path =  f"224_patch_score_{score_threshold}/{svs_name}"
             svs_file = OpenSlide(os.path.join(svs_base_path + svs_name + ".svs"))
             blockmap_file = cv2.imread(os.path.join(base_path, svs_name, svs_name + "_blockmap.png"))
             csv_file = os.path.join(base_path, svs_name, svs_name + "_all_patches_scores.csv")
@@ -50,9 +50,10 @@ def make_patch(json_file, patch_size, score_threshold):
                 PIL_image = Image.new("RGB", region.size)
                 PIL_image.paste(region, (0, 0))
                 
+                PIL_image_resized = PIL_image.resize((224, 224), Image.ANTIALIAS)
                 PIL_output_path = os.path.join(output_path, f"{svs_name}_{x}_{y}.png")
 
-                PIL_image.save(PIL_output_path)
+                PIL_image_resized.save(PIL_output_path)
                 # svs_file.close()
                 
                 x, y = int(x/8), int(y/8)

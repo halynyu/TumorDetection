@@ -31,19 +31,28 @@ classification/makepatch_tmp.py
 classification/JPEG_FOLDER/
 classification/cropped_png
 classification/patch_tmp.py
-classification/train_test_tmp.py
+classification/train_test_acc.py
+classification/train_test_ROC.py
 classification/cuda.py
 classification/makeHeatmap_tmp.py
 classification/tmp.py
 classification/main10.py
+classification/heatmap
+classification/heatmap_70
+classification/patch_score_70
+
 
 classification/PATCH_*/
+
+MN_dataset_txt_file/*
 
 image_txt_file/
 dataset_txt_file/
 Model_save/
 tumorAnnotation.json
 classification/PATCH_h5/
+
+evaluation_image
 
 
 
@@ -54,3 +63,5 @@ read_h5.py
 tumorAnnotation.json
 classification/main.py
 classification/image_make_utils_tmp.py
+
+Model_save/*

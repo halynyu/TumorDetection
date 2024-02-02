@@ -15,7 +15,7 @@ from make_dataset import *
 from tqdm import tqdm
 import time
 
-from classification_model import make_ResNet
+from classification_model import *
 from image_make_utils import make_HeatMap
 from train_test_tmp import train, criterion_optimizer, eval
 
@@ -41,6 +41,18 @@ def get_args():
 
     return args
 
+# 이미지 로드 및 MobileNet에서 사용하는 224*224로 크기 변경 (전처리)
+def preprocessing_image(img_path, target_size=(224, 224)):
+    transform = transforms.Compose([
+        transforms.Resize(target_size),
+        transforms.ToTensor(),
+        transforms.Normalize(mean=[0.485, 0.456, 0.406], std = [0.229, 0.224, 0.225]),
+        ])
+    img = Image.open(img_path)
+    img_transform(img)
+    img = img.unsqueeze(0)
+    return img
+
 
 if __name__ == '__main__':
 
@@ -55,10 +67,10 @@ if __name__ == '__main__':
     # dist.init_process_group(backend='nccl')
 
 
-    model = make_ResNet(args)
+    #model = make_ResNet(args)
+    model = make_MobileNetV2(args)
 
     device = torch.device('cuda:0')
-
     # print("**************** Model Architecture **********************************\n")
     # print(model)
     # print("********************************************************************\n\n")
@@ -88,7 +100,7 @@ if __name__ == '__main__':
                             pin_memory = pin_memory)
     LUAC_test_Dataloader = DataLoader(LUAC_concat_Test_Dataset, batch_size = args.batch_size, shuffle = shuffle,
                             pin_memory = pin_memory)
-    LUAC_weights = [1, 5]
+    LUAC_weights = [10,1]
 
     # YS
     YS_train_Dataloader = DataLoader(YS_concat_Dataset, batch_size = args.batch_size, shuffle=shuffle,
@@ -140,7 +152,7 @@ if __name__ == '__main__':
         criterion, optimizer = criterion_optimizer(model, weights)
 
         # Test할 model의 위치를 수정하며 실험
-        test_model_path = "/home/lab/Tumor_Detection/Model_save/20231201_model1/15_1/1_1/epoch_6677_all.tar"
+        test_model_path = "/home/lab/Tumor_Detection/Model_save/20231228_model1/1_1/1_1/epoch_511_all.tar"
 
         print("LUAC")
         LUAC_total_pos, LUAC_correct_pos, LUAC_total_neg, LUAC_correct_neg, LUAC_pos_acc, LUAC_neg_acc, LUAC_total_acc = eval(model, LUAC_test_Dataloader, LUAC_criterion, LUAC_optimizer, device, args.batch_size, test_model_path)

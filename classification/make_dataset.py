@@ -10,78 +10,78 @@ os.chdir('..')
 # DATA PATH
 
 # LUAC
-positive_train_LUAC_file_path = f"dataset_txt_file/positive_train_LUAC_score.txt"
-negative_train_LUAC_file_path = f"dataset_txt_file/negative_train_LUAC_score.txt"
+positive_train_LUAC_file_path = f"MN_dataset_txt_file/positive_train_LUAC_score.txt"
+negative_train_LUAC_file_path = f"MN_dataset_txt_file/negative_train_LUAC_score.txt"
 
 pos_train_LUAC_data_path = []
 neg_train_LUAC_data_path = []
 
-positive_test_LUAC_file_path = f"dataset_txt_file/positive_test_LUAC_score.txt"
-negative_test_LUAC_file_path = f"dataset_txt_file/negative_test_LUAC_score.txt"
+positive_test_LUAC_file_path = f"MN_dataset_txt_file/positive_test_LUAC_score.txt"
+negative_test_LUAC_file_path = f"MN_dataset_txt_file/negative_test_LUAC_score.txt"
 
 pos_test_LUAC_data_path = []
 neg_test_LUAC_data_path = []
 
-positive_validation_LUAC_file_path = f"dataset_txt_file/positive_validation_LUAC_score.txt"
-negative_validation_LUAC_file_path = f"dataset_txt_file/negative_validation_LUAC_score.txt"
+positive_validation_LUAC_file_path = f"MN_dataset_txt_file/positive_validation_LUAC_score.txt"
+negative_validation_LUAC_file_path = f"MN_dataset_txt_file/negative_validation_LUAC_score.txt"
 
 pos_valid_LUAC_data_path = []
 neg_valid_LUAC_data_path = []
 
 # TCGA
-positive_train_TCGA_file_path = f"dataset_txt_file/positive_train_TCGA_score.txt"
-negative_train_TCGA_file_path = f"dataset_txt_file/negative_train_TCGA_score.txt"
+positive_train_TCGA_file_path = f"MN_dataset_txt_file/positive_train_TCGA_score.txt"
+negative_train_TCGA_file_path = f"MN_dataset_txt_file/negative_train_TCGA_score.txt"
 
 pos_train_TCGA_data_path = []
 neg_train_TCGA_data_path = []
 
-positive_test_TCGA_file_path = f"dataset_txt_file/positive_test_TCGA_score.txt"
-negative_test_TCGA_file_path = f"dataset_txt_file/negative_test_TCGA_score.txt"
+positive_test_TCGA_file_path = f"MN_dataset_txt_file/positive_test_TCGA_score.txt"
+negative_test_TCGA_file_path = f"MN_dataset_txt_file/negative_test_TCGA_score.txt"
 
 pos_test_TCGA_data_path = []
 neg_test_TCGA_data_path = []
 
-positive_validation_TCGA_file_path = f"dataset_txt_file/positive_validation_TCGA_score.txt"
-negative_validation_TCGA_file_path = f"dataset_txt_file/negative_validation_TCGA_score.txt"
+positive_validation_TCGA_file_path = f"MN_dataset_txt_file/positive_validation_TCGA_score.txt"
+negative_validation_TCGA_file_path = f"MN_dataset_txt_file/negative_validation_TCGA_score.txt"
 
 pos_valid_TCGA_data_path = []
 neg_valid_TCGA_data_path = []
 
 # YS
-positive_train_YS_file_path = f"dataset_txt_file/positive_train_YS_score.txt"
-negative_train_YS_file_path = f"dataset_txt_file/negative_train_YS_score.txt"
+positive_train_YS_file_path = f"MN_dataset_txt_file/positive_train_YS_score.txt"
+negative_train_YS_file_path = f"MN_dataset_txt_file/negative_train_YS_score.txt"
 
 pos_train_YS_data_path = []
 neg_train_YS_data_path = []
 
-positive_test_YS_file_path = f"dataset_txt_file/positive_test_YS_score.txt"
-negative_test_YS_file_path = f"dataset_txt_file/negative_test_YS_score.txt"
+positive_test_YS_file_path = f"MN_dataset_txt_file/positive_test_YS_score.txt"
+negative_test_YS_file_path = f"MN_dataset_txt_file/negative_test_YS_score.txt"
 
 pos_test_YS_data_path = []
 neg_test_YS_data_path = []
 
-positive_validation_YS_file_path = f"dataset_txt_file/positive_validation_YS_score.txt"
-negative_validation_YS_file_path = f"dataset_txt_file/negative_validation_YS_score.txt"
+positive_validation_YS_file_path = f"MN_dataset_txt_file/positive_validation_YS_score.txt"
+negative_validation_YS_file_path = f"MN_dataset_txt_file/negative_validation_YS_score.txt"
 
 pos_valid_YS_data_path = []
 neg_valid_YS_data_path = []
 
 
 # SSSF
-positive_train_SSSF_file_path = f"dataset_txt_file/positive_train_SSSF_score.txt"
-negative_train_SSSF_file_path = f"dataset_txt_file/negative_train_SSSF_score.txt"
+positive_train_SSSF_file_path = f"MN_dataset_txt_file/positive_train_SSSF_score.txt"
+negative_train_SSSF_file_path = f"MN_dataset_txt_file/negative_train_SSSF_score.txt"
 
 pos_train_SSSF_data_path = []
 neg_train_SSSF_data_path = []
 
-positive_test_SSSF_file_path = f"dataset_txt_file/positive_test_SSSF_score.txt"
-negative_test_SSSF_file_path = f"dataset_txt_file/negative_test_SSSF_score.txt"
+positive_test_SSSF_file_path = f"MN_dataset_txt_file/positive_test_SSSF_score.txt"
+negative_test_SSSF_file_path = f"MN_dataset_txt_file/negative_test_SSSF_score.txt"
 
 pos_test_SSSF_data_path = []
 neg_test_SSSF_data_path = []
 
-positive_validation_SSSF_file_path = f"dataset_txt_file/positive_validation_SSSF_score.txt"
-negative_validation_SSSF_file_path = f"dataset_txt_file/negative_validation_SSSF_score.txt"
+positive_validation_SSSF_file_path = f"MN_dataset_txt_file/positive_validation_SSSF_score.txt"
+negative_validation_SSSF_file_path = f"MN_dataset_txt_file/negative_validation_SSSF_score.txt"
 
 pos_valid_SSSF_data_path = []
 neg_valid_SSSF_data_path = []
