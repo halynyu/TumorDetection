@@ -9,6 +9,7 @@ from torch.utils.data import DataLoader
 import torchvision
 import argparse
 import os
+import wandb
 # Making Datasets in different Folder
 from make_dataset import *
 
@@ -17,7 +18,7 @@ import time
 
 from classification_model import *
 from image_make_utils import make_HeatMap
-from train_test_tmp import train, criterion_optimizer, eval
+from train_test import train, criterion_optimizer, eval
 
 
 
@@ -31,7 +32,7 @@ def get_args():
                         help="ResNet18 number of Class")
     parser.add_argument("--batch_size", type=int, default=32,
                         help='Model Batch_size')
-    parser.add_argument('--model_save_path', type=str, default=f'Model_save/20231228_model1',
+    parser.add_argument('--model_save_path', type=str, default=f'Model_save/20230205_model1',
                         help="Where to Save model ")
     parser.add_argument('--pretrained', type=str,  default=False,
                         help="Using Pretrained or not")
@@ -66,6 +67,8 @@ if __name__ == '__main__':
 
     # dist.init_process_group(backend='nccl')
 
+    # TODO
+    # 
 
     #model = make_ResNet(args)
     model = make_MobileNetV2(args)

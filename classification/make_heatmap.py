@@ -37,6 +37,8 @@ args = get_args()
 base_path = "/home/lab/Tumor_Detection/CLAM/heatmaps/heatmap_raw_results/HEATMAP_OUTPUT/ POS/"
 # svs_base_path : svs 파일이 있는 directory
 svs_base_path = "/home/lab/Tumor_Detection/CLAM/heatmaps/demo/slides/"
+# heatmap_base_path : 생성되는 heatmap 파일이 있는 directory
+heatmap_base_path = "/home/lab/Tumor_Detection/classification/heatmap"
 
 patch_base_path = "/home/lab/Tumor_Detection/classification/224_patch_score_80"
 
