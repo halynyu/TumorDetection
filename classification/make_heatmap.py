@@ -70,7 +70,7 @@ def heatmap(tumor_name, pos_or_neg):
     with torch.no_grad():
         for patch in os.listdir(patch_path):
             if patch.endswith(".png"):
-                print(patch)
+                # print(patch)
                 pattern = r"_(\d+)_(\d+)\.png"
                 matches = re.findall(pattern, patch)
                 # print(matches)
@@ -85,7 +85,15 @@ def heatmap(tumor_name, pos_or_neg):
                 output = model(image)
                 probs = sigmoid(output)[0][0].item()
                 probs_tmp = sigmoid(output)[0][1].item()
-                print(probs, probs_tmp)
+                if pos_or_neg == "pos":
+                    if probs >= 0.5:
+                        print(patch)
+                        print(probs, probs_tmp)
+                if pos_or_neg == "neg":
+                    if probs_tmp >= 0.5:
+                        print(patch)
+                        print(probs, probs_tmp)
+                # print(probs, probs_tmp)
 
                 # print(f"width : {width} |   height : {height}       |   prob : {probs}")
                 red, blue = int(probs * 255), int(probs_tmp * 255)
@@ -105,8 +113,11 @@ with open("../tumorAnnotation.json", "r") as file:
     data = json.load(file)
 
 
-keys_pos = ["POSITIVE_TEST_YS", "POSITIVE_TEST_TCGA", "POSITIVE_TEST_LUAC", "POSITIVE_TEST_SSSF"]
-keys_neg = ["NEGATIVE_TEST_LUAC", "NEGATIVE_TEST_SSSF"]
+# keys_pos = ["POSITIVE_TEST_YS", "POSITIVE_TEST_TCGA", "POSITIVE_TEST_LUAC", "POSITIVE_TEST_SSSF"]
+# keys_neg = ["NEGATIVE_TEST_LUAC", "NEGATIVE_TEST_SSSF"]
+
+keys_pos = ["POSITIVE_TEST_SSSF"]
+keys_neg = ["NEGATIVE_TEST_SSSF"]
 
 for key in keys_pos:
     current_list = data.get(key, [])
