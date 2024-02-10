@@ -30,6 +30,7 @@ def get_args():
 
 args = get_args()
 
+print("halyn")
 
 
 
@@ -56,7 +57,12 @@ device = torch.device("cuda:0")
 model.to(device)
 model.eval()
 
-
+# for filename in os.listdir(heatmap_base_path):
+#     if filename.endswith(".png"):
+#         pattern = r"_(\d+)_(\d).png"
+#         matches = re.findall(pattern, filename)
+#         print(matches)
+#         # if matches:
 
 def crop_region(tumor_name, pos_or_neg, output_path):
     # 사진 하나 찝어서 가져왔다고 가정
@@ -82,26 +88,28 @@ def crop_region(tumor_name, pos_or_neg, output_path):
     width, height = CLAM_image.size
     
     # CLAM기준 가로, 세로의 patch개수 구하기
-    print(tumor_name)
+    # print(tumor_name)
     width, height = int(width)/32, int(height)/32
-    print(width, height)
-    width = int(width)
-    height = int(height)
-    print(width, height)
+    # print(width, height)
+    width = 32 * int(width)
+    height = 32 * int(height)
+    
 
     with torch.no_grad():
-        for x in range(width-3):
-            for y in range(height-3):
-                x = 32 * x
-                y = 32 * y
-                total = 0
-                wrong = 0
+        
+        for x in range(0, width-96, 32):
+            total = 0
+            wrong = 0
+            for y in range(0, height-96, 32):
+                # print(x, y)
                 for patch in os.listdir(patch_path):
                     if patch.endswith(".png"):
+                        # print(patch)
                         pattern = r"_(\d+)_(\d+)\.png"
                         matches = re.findall(pattern, patch)
                         patch_w, patch_h = matches[0]
                         patch_w, patch_h = int(patch_w)/8, int(patch_h)/8
+                        # print(x, y, patch_w, patch_h)
 
                         if patch_w > x and patch_w < x + window_size:
                             total += 1
@@ -115,17 +123,19 @@ def crop_region(tumor_name, pos_or_neg, output_path):
                             if pos_or_neg == "pos":
                                 if probs_neg >= 0.6:
                                     wrong += 1
+                                    # print("wrong!")
                             else:
                                 if probs_pos >= 0.6:
                                     wrong += 1
+                                    # print("wrong!")
                 
-                if total != 0:
-                    print(x, y, total, wrong)
-                    acc = (total - wrong) / total * 100.
-                    if acc <= 90:
-                        crop(CLAM_image, x, y, "CLAM", output_path)
-                        crop(heatmap_image, x, y, "heatmap", output_path)
-                        crop_svs(svs_image, x, y, output_path)
+            if total != 0:
+                print(x, y, total, wrong)
+                acc = (total - wrong) / total * 100.
+                if acc <= 90:
+                    crop(CLAM_image, x, y, "CLAM", output_path)
+                    crop(heatmap_image, x, y, "heatmap", output_path)
+                    crop_svs(svs_image, x, y, output_path)
         print("Done\n")
                             
                         

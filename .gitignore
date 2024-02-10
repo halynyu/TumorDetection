@@ -42,7 +42,7 @@ classification/heatmap_70
 classification/patch_score_70
 
 classification/224_heatmap_80
-classification/224_patch_score_80
+classification/224_patch_score_80/*
 classification/cropped_region
 
 
